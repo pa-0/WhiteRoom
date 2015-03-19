@@ -2,7 +2,7 @@ WhiteRoom
 ========================
   
 A fork of DarkRoom (a WriteRoom alternative).  
-Released under the Open Software License ("OSL") v3.0 Licence.
+Released and kept under the Open Software License v3.0 ("OSL").
   
 The original content for DarkRoom:
 - About: http://jjafuller.com/dark-room
