@@ -1,4 +1,4 @@
-WhiteRoom
+# ![*](WhiteRoom/misc/logo/writeroom.appicon.48.png) WhiteRoom
 ========================
   
 A fork of **DarkRoom** (a **WriteRoom** alternative).  
