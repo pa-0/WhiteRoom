@@ -1,1 +1,4 @@
-First commit, your mileage more vary.
+WhiteRoom
+========================
+  
+A fork of DarkRoom (a WriteRoom alternative).
