@@ -37,12 +37,14 @@ namespace WhiteRoom
             this.lblCharNoSpaces = new System.Windows.Forms.Label();
             this.lblCharSpaces = new System.Windows.Forms.Label();
             this.lblLines = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdOk
             // 
             this.cmdOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cmdOk.Location = new System.Drawing.Point(205, 109);
+            this.cmdOk.Location = new System.Drawing.Point(141, 98);
             this.cmdOk.Name = "cmdOk";
             this.cmdOk.Size = new System.Drawing.Size(75, 23);
             this.cmdOk.TabIndex = 0;
@@ -87,49 +89,61 @@ namespace WhiteRoom
             // 
             // lblWords
             // 
-            this.lblWords.AutoSize = true;
-            this.lblWords.Location = new System.Drawing.Point(202, 9);
+            this.lblWords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWords.Location = new System.Drawing.Point(23, 0);
             this.lblWords.Name = "lblWords";
             this.lblWords.Size = new System.Drawing.Size(49, 13);
             this.lblWords.TabIndex = 5;
             this.lblWords.Text = "WORDS";
+            this.lblWords.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblCharNoSpaces
             // 
-            this.lblCharNoSpaces.AutoSize = true;
-            this.lblCharNoSpaces.Location = new System.Drawing.Point(202, 31);
+            this.lblCharNoSpaces.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCharNoSpaces.Location = new System.Drawing.Point(7, 22);
             this.lblCharNoSpaces.Name = "lblCharNoSpaces";
             this.lblCharNoSpaces.Size = new System.Drawing.Size(65, 13);
             this.lblCharNoSpaces.TabIndex = 6;
             this.lblCharNoSpaces.Text = "NOSPACES";
+            this.lblCharNoSpaces.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblCharSpaces
             // 
-            this.lblCharSpaces.AutoSize = true;
-            this.lblCharSpaces.Location = new System.Drawing.Point(202, 55);
+            this.lblCharSpaces.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCharSpaces.Location = new System.Drawing.Point(23, 46);
             this.lblCharSpaces.Name = "lblCharSpaces";
             this.lblCharSpaces.Size = new System.Drawing.Size(49, 13);
             this.lblCharSpaces.TabIndex = 7;
             this.lblCharSpaces.Text = "SPACES";
+            this.lblCharSpaces.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblLines
             // 
-            this.lblLines.AutoSize = true;
-            this.lblLines.Location = new System.Drawing.Point(202, 79);
+            this.lblLines.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLines.Location = new System.Drawing.Point(34, 70);
             this.lblLines.Name = "lblLines";
             this.lblLines.Size = new System.Drawing.Size(38, 13);
             this.lblLines.TabIndex = 8;
             this.lblLines.Text = "LINES";
+            this.lblLines.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblWords);
+            this.panel1.Controls.Add(this.lblLines);
+            this.panel1.Controls.Add(this.lblCharNoSpaces);
+            this.panel1.Controls.Add(this.lblCharSpaces);
+            this.panel1.Location = new System.Drawing.Point(144, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(75, 83);
+            this.panel1.TabIndex = 9;
             // 
             // frmStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 144);
-            this.Controls.Add(this.lblLines);
-            this.Controls.Add(this.lblCharSpaces);
-            this.Controls.Add(this.lblCharNoSpaces);
-            this.Controls.Add(this.lblWords);
+            this.ClientSize = new System.Drawing.Size(221, 127);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -139,6 +153,7 @@ namespace WhiteRoom
             this.Name = "frmStatistics";
             this.Text = "Statistics";
             this.Load += new System.EventHandler(this.frmStatistics_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +170,6 @@ namespace WhiteRoom
         private System.Windows.Forms.Label lblCharNoSpaces;
         private System.Windows.Forms.Label lblCharSpaces;
         private System.Windows.Forms.Label lblLines;
+        private System.Windows.Forms.Panel panel1;
     }
 }

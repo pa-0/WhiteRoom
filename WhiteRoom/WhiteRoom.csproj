@@ -153,6 +153,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\MainIcon.ico" />
+    <None Include="icons\edit-clear.png" />
+    <None Include="icons\edit-copy.png" />
+    <None Include="icons\edit-cut.png" />
+    <None Include="icons\edit-find.png" />
+    <None Include="icons\edit-findnext.png" />
+    <None Include="icons\edit-paste.png" />
+    <None Include="icons\edit-preferences.png" />
+    <None Include="icons\edit-redo.png" />
+    <None Include="icons\edit-selectall.png" />
+    <None Include="icons\edit-undo.png" />
+    <None Include="icons\file-new.png" />
+    <None Include="icons\file-open.png" />
+    <None Include="icons\file-pagesetup.png" />
+    <None Include="icons\file-print.png" />
+    <None Include="icons\file-save.png" />
+    <None Include="icons\file-saveas.png" />
+    <None Include="icons\help-about.png" />
+    <None Include="icons\help-checkforupdates.png" />
+    <None Include="icons\help-website.png" />
+    <None Include="icons\view-fullscreen.png" />
+    <None Include="icons\view-statistics.png" />
+    <None Include="icons\mainicon.png" />
+    <None Include="icons\menu-mainicon.png" />
     <Content Include="WhiteRoom.ico" />
   </ItemGroup>
   <ItemGroup>
