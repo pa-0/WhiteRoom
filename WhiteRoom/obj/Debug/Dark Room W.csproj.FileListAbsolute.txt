@@ -1,2 +1,0 @@
-C:\Users\Joachim\Documents\GitHub\WhiteRoom\Dark Room W\bin\Debug\DarkRoomW.exe.config
-C:\Users\Joachim\Documents\GitHub\WhiteRoom\Dark Room W\bin\Debug\WhiteRoom.exe.config
