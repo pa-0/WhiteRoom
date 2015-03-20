@@ -260,8 +260,15 @@ namespace WhiteRoom
         public void Sync()
         {
             this.BackColor = Properties.Settings.Default.BackgroundColor;
-            string BackImg = Properties.Settings.Default.BackImage.Trim();
-            this.BackgroundImage = (File.Exists(BackImg)) ? new Bitmap(BackImg) : null;
+            if (Properties.Settings.Default.BackImageEnable)
+            {
+                string BackImg = Properties.Settings.Default.BackImage.Trim();
+                this.BackgroundImage = (File.Exists(BackImg)) ? new Bitmap(BackImg) : null;
+            }
+            else
+            {
+                this.BackgroundImage = null;
+            }
             this.Opacity = (float)(Properties.Settings.Default.Opacity / 100.0);
             pnlPage.BackColor = Properties.Settings.Default.PageColor;
             pnlPage.BorderStyle = (Properties.Settings.Default.ShowPageBorder) ? BorderStyle.FixedSingle : BorderStyle.None;

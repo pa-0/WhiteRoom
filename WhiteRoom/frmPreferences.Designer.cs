@@ -79,6 +79,7 @@ namespace WhiteRoom
             this.clrPicker = new System.Windows.Forms.ColorDialog();
             this.fntPicker = new System.Windows.Forms.FontDialog();
             this.imgPicker = new System.Windows.Forms.OpenFileDialog();
+            this.chkBackImage = new System.Windows.Forms.CheckBox();
             this.tabPreferences.SuspendLayout();
             this.tabEnvironment.SuspendLayout();
             this.grpGeneral.SuspendLayout();
@@ -127,6 +128,7 @@ namespace WhiteRoom
             // 
             // grpGeneral
             // 
+            this.grpGeneral.Controls.Add(this.chkBackImage);
             this.grpGeneral.Controls.Add(this.label5);
             this.grpGeneral.Controls.Add(this.btnBackImage);
             this.grpGeneral.Controls.Add(this.chkNeutralHighlighting);
@@ -618,6 +620,16 @@ namespace WhiteRoom
             this.imgPicker.DefaultExt = "*.png";
             this.imgPicker.Filter = "Images|*.png;*.jpg;*.gif;*.bmp;*.jpeg|All files|*.*";
             // 
+            // chkBackImage
+            // 
+            this.chkBackImage.AutoSize = true;
+            this.chkBackImage.Location = new System.Drawing.Point(9, 48);
+            this.chkBackImage.Name = "chkBackImage";
+            this.chkBackImage.Size = new System.Drawing.Size(15, 14);
+            this.chkBackImage.TabIndex = 11;
+            this.chkBackImage.UseVisualStyleBackColor = true;
+            this.chkBackImage.CheckedChanged += new System.EventHandler(this.chkBackImage_CheckedChanged);
+            // 
             // frmPreferences
             // 
             this.AcceptButton = this.btnOK;
@@ -703,5 +715,6 @@ namespace WhiteRoom
         private System.Windows.Forms.Button btnBackImage;
         private System.Windows.Forms.OpenFileDialog imgPicker;
         private System.Windows.Forms.CheckBox chkRescale;
+        private System.Windows.Forms.CheckBox chkBackImage;
     }
 }

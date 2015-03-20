@@ -135,6 +135,8 @@ namespace WhiteRoom
             btnBackColor.BackColor = Properties.Settings.Default.BackgroundColor;
             string BackImg = Properties.Settings.Default.BackImage.Trim();
             btnBackImage.Text = (File.Exists(BackImg)) ? BackImg : "none";
+            chkBackImage.Checked = Properties.Settings.Default.BackImageEnable;
+            btnBackImage.Enabled = Properties.Settings.Default.BackImageEnable;
             trcOpacity.Value = Properties.Settings.Default.Opacity;
             chkMultipleMonitor.Checked = Properties.Settings.Default.MultipleMonitors;
             chkNav.Checked = Properties.Settings.Default.HideNavigation;
@@ -482,6 +484,14 @@ namespace WhiteRoom
         private void chkRescale_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.RescaleOnMouseRelease = chkRescale.Checked;
+            Properties.Settings.Default.Save();
+            parent.Sync();
+        }
+
+        private void chkBackImage_CheckedChanged(object sender, EventArgs e)
+        {
+            btnBackImage.Enabled = chkBackImage.Checked;
+            Properties.Settings.Default.BackImageEnable = chkBackImage.Checked;
             Properties.Settings.Default.Save();
             parent.Sync();
         }

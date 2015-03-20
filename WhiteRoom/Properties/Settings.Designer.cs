@@ -328,5 +328,17 @@ namespace WhiteRoom.Properties {
                 this["RescaleOnMouseRelease"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BackImageEnable {
+            get {
+                return ((bool)(this["BackImageEnable"]));
+            }
+            set {
+                this["BackImageEnable"] = value;
+            }
+        }
     }
 }
