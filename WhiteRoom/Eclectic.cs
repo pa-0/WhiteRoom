@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace WhiteRoom
 {
@@ -138,7 +139,7 @@ namespace WhiteRoom
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message, "WhiteRoom - Error: Check For Updates", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             return latest;
