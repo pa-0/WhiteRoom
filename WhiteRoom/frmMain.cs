@@ -259,8 +259,11 @@ namespace WhiteRoom
         public void Sync()
         {
             this.BackColor = Properties.Settings.Default.BackgroundColor;
+            string BackImg = Properties.Settings.Default.BackImage.Trim();
+            this.BackgroundImage = (File.Exists(BackImg)) ? new Bitmap(BackImg) : null;
             this.Opacity = (float)(Properties.Settings.Default.Opacity / 100.0);
             pnlPage.BackColor = Properties.Settings.Default.PageColor;
+            pnlPage.BorderStyle = (Properties.Settings.Default.ShowPageBorder) ? BorderStyle.FixedSingle : BorderStyle.None;
             txtPage.BackColor = Properties.Settings.Default.PageColor;
             txtPage.Font = new Font(Properties.Settings.Default.Font.FontFamily, Properties.Settings.Default.Font.Size, txtPage.Font.Style);
             txtPage.ForeColor = Properties.Settings.Default.ForegroundColor;
@@ -278,6 +281,23 @@ namespace WhiteRoom
             if (Properties.Settings.Default.MultipleMonitors)
             {
                 HandleAdditionalScreens((this.WindowState == FormWindowState.Normal) ? 0 : 1);
+            }
+            if (Properties.Settings.Default.RescaleOnMouseRelease)
+            {
+                this.Resize -= frmMain_Resize;
+                this.Resize -= frmMain_ResizeMaxMin;
+                this.ResizeEnd -= frmMain_Resize;
+
+                this.Resize += frmMain_ResizeMaxMin;
+                this.ResizeEnd += frmMain_Resize;
+            }
+            else
+            {
+                this.Resize -= frmMain_Resize;
+                this.Resize -= frmMain_ResizeMaxMin;
+                this.ResizeEnd -= frmMain_Resize;
+
+                this.Resize += frmMain_Resize;
             }
         }
 
@@ -510,6 +530,16 @@ namespace WhiteRoom
                 string arg = (Environment.GetCommandLineArgs())[1];
                 string filename = arg.Replace("\"", "");
                 OpenFile(filename);
+            }
+        }
+
+        FormWindowState frmMain_LastWindowState = FormWindowState.Minimized;
+        private void frmMain_ResizeMaxMin(object sender, EventArgs e)
+        {
+            if (this.WindowState != frmMain_LastWindowState)
+            {
+                frmMain_LastWindowState = this.WindowState;
+                ReScale();
             }
         }
 

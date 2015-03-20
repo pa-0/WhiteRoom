@@ -292,5 +292,41 @@ namespace WhiteRoom.Properties {
                 this["NeutralHighlight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowPageBorder {
+            get {
+                return ((bool)(this["ShowPageBorder"]));
+            }
+            set {
+                this["ShowPageBorder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("none")]
+        public string BackImage {
+            get {
+                return ((string)(this["BackImage"]));
+            }
+            set {
+                this["BackImage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RescaleOnMouseRelease {
+            get {
+                return ((bool)(this["RescaleOnMouseRelease"]));
+            }
+            set {
+                this["RescaleOnMouseRelease"] = value;
+            }
+        }
     }
 }

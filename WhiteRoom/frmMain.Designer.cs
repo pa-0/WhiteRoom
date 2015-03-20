@@ -440,6 +440,7 @@ namespace WhiteRoom
             // pnlPage
             // 
             this.pnlPage.BackColor = System.Drawing.Color.Gray;
+            this.pnlPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPage.Controls.Add(this.txtPage);
             this.pnlPage.Location = new System.Drawing.Point(0, 24);
             this.pnlPage.Margin = new System.Windows.Forms.Padding(0);

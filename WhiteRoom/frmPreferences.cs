@@ -12,6 +12,7 @@
  */
 
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -128,9 +129,12 @@ namespace WhiteRoom
             chkPageHeight.Checked = (Properties.Settings.Default.PageHeight == 0);
             txtPageMargin.Text = Properties.Settings.Default.PagePadding.ToString();
             btnPageColor.BackColor = Properties.Settings.Default.PageColor;
+            chkPageShowBorder.Checked = Properties.Settings.Default.ShowPageBorder;
 
             // general (interface) assignments
             btnBackColor.BackColor = Properties.Settings.Default.BackgroundColor;
+            string BackImg = Properties.Settings.Default.BackImage.Trim();
+            btnBackImage.Text = (File.Exists(BackImg)) ? BackImg : "none";
             trcOpacity.Value = Properties.Settings.Default.Opacity;
             chkMultipleMonitor.Checked = Properties.Settings.Default.MultipleMonitors;
             chkNav.Checked = Properties.Settings.Default.HideNavigation;
@@ -155,6 +159,7 @@ namespace WhiteRoom
             }
 
             // advanced settings
+            chkRescale.Checked = Properties.Settings.Default.RescaleOnMouseRelease;
             chkContextMenu.Checked = Properties.Settings.Default.OpenWithContextMenu;
             chkLocalCacheFile.Checked = Properties.Settings.Default.LocalCacheFile;
             txtCursorBlinkTime.Text = Properties.Settings.Default.CaretBlinkRate.ToString();
@@ -359,7 +364,7 @@ namespace WhiteRoom
 
         private void chkContextMenu_CheckedChanged(object sender, EventArgs e)
         {
-             RegistryKey regKey;
+            RegistryKey regKey;
             if (chkContextMenu.Checked)
             {
                 regKey = Registry.ClassesRoot.OpenSubKey("*\\Shell", true);
@@ -450,6 +455,35 @@ namespace WhiteRoom
         {
             Properties.Settings.Default.NeutralHighlight = chkNeutralHighlighting.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void chkPageShowBorder_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ShowPageBorder = chkPageShowBorder.Checked;
+            Properties.Settings.Default.Save();
+            parent.Sync();
+        }
+
+        private void btnBackImage_Click(object sender, EventArgs e)
+        {
+            string currentImagePath = btnBackImage.Text.Trim();
+            if (currentImagePath != "" & File.Exists(currentImagePath))
+                imgPicker.FileName = currentImagePath;
+            if (imgPicker.ShowDialog() != DialogResult.Cancel)
+            {
+                string newImagePath = imgPicker.FileName.Trim();
+                btnBackImage.Text = newImagePath;
+                Properties.Settings.Default.BackImage = newImagePath;
+                Properties.Settings.Default.Save();
+                parent.Sync();
+            }
+        }
+
+        private void chkRescale_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.RescaleOnMouseRelease = chkRescale.Checked;
+            Properties.Settings.Default.Save();
+            parent.Sync();
         }
     }
 }
