@@ -11,7 +11,7 @@
     <RootNamespace>WhiteRoom</RootNamespace>
     <AssemblyName>WhiteRoom</AssemblyName>
     <StartupObject>WhiteRoom.Program</StartupObject>
-    <ApplicationIcon>WhiteRoom.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\MainIcon.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -110,6 +110,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -137,14 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -153,31 +153,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MainIcon.ico" />
-    <None Include="icons\edit-clear.png" />
-    <None Include="icons\edit-copy.png" />
-    <None Include="icons\edit-cut.png" />
-    <None Include="icons\edit-find.png" />
-    <None Include="icons\edit-findnext.png" />
-    <None Include="icons\edit-paste.png" />
-    <None Include="icons\edit-preferences.png" />
-    <None Include="icons\edit-redo.png" />
-    <None Include="icons\edit-selectall.png" />
-    <None Include="icons\edit-undo.png" />
-    <None Include="icons\file-new.png" />
-    <None Include="icons\file-open.png" />
-    <None Include="icons\file-pagesetup.png" />
-    <None Include="icons\file-print.png" />
-    <None Include="icons\file-save.png" />
-    <None Include="icons\file-saveas.png" />
-    <None Include="icons\help-about.png" />
-    <None Include="icons\help-checkforupdates.png" />
-    <None Include="icons\help-website.png" />
-    <None Include="icons\view-fullscreen.png" />
-    <None Include="icons\view-statistics.png" />
-    <None Include="icons\mainicon.png" />
-    <None Include="icons\menu-mainicon.png" />
-    <Content Include="WhiteRoom.ico" />
+    <None Include="Resources\icons\edit-clear.png" />
+    <None Include="Resources\icons\edit-copy.png" />
+    <None Include="Resources\icons\edit-cut.png" />
+    <None Include="Resources\icons\edit-find.png" />
+    <None Include="Resources\icons\edit-findnext.png" />
+    <None Include="Resources\icons\edit-paste.png" />
+    <None Include="Resources\icons\edit-preferences.png" />
+    <None Include="Resources\icons\edit-redo.png" />
+    <None Include="Resources\icons\edit-selectall.png" />
+    <None Include="Resources\icons\edit-undo.png" />
+    <None Include="Resources\icons\file-new.png" />
+    <None Include="Resources\icons\file-open.png" />
+    <None Include="Resources\icons\file-pagesetup.png" />
+    <None Include="Resources\icons\file-print.png" />
+    <None Include="Resources\icons\file-save.png" />
+    <None Include="Resources\icons\file-saveas.png" />
+    <None Include="Resources\icons\help-about.png" />
+    <None Include="Resources\icons\help-checkforupdates.png" />
+    <None Include="Resources\icons\help-website.png" />
+    <None Include="Resources\icons\view-fullscreen.png" />
+    <None Include="Resources\icons\view-statistics.png" />
+    <None Include="Resources\icons\menu-mainicon.png" />
+    <Content Include="Resources\MainIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
