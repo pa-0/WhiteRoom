@@ -34,6 +34,7 @@ namespace WhiteRoom
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
+            this.labelCopyrightIcons.Text = WhiteRoom.Properties.Resources.CopyrightIcons;
             this.textBoxDescription.Text = AssemblyDescription;
         }
 

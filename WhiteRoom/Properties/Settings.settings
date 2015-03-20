@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="PageColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Black</Value>
+      <Value Profile="(Default)">WhiteSmoke</Value>
     </Setting>
     <Setting Name="ForegroundColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Lime</Value>
+      <Value Profile="(Default)">64, 64, 64</Value>
     </Setting>
     <Setting Name="BackgroundColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Black</Value>
+      <Value Profile="(Default)">WhiteSmoke</Value>
     </Setting>
     <Setting Name="Font" Type="System.Drawing.Font" Scope="User">
-      <Value Profile="(Default)">Courier New, 12pt</Value>
+      <Value Profile="(Default)">Segoe UI, 9.75pt</Value>
     </Setting>
     <Setting Name="PageWidth" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">600</Value>

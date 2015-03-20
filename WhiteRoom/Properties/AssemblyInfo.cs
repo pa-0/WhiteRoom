@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WhiteRoom")]
-[assembly: AssemblyCopyright("Copyright © Joe DF (2015), Jeffrey Fuller (2010)")]
+[assembly: AssemblyCopyright("Copyright (C) Joe DF (2015), Jeffrey Fuller (2010)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

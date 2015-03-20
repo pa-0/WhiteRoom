@@ -34,6 +34,7 @@ namespace WhiteRoom
             this.labelCopyright = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
+            this.labelCopyrightIcons = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtIpsum = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel.SuspendLayout();
@@ -50,6 +51,7 @@ namespace WhiteRoom
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.labelCopyrightIcons, 1, 3);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(9, 9);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -124,6 +126,19 @@ namespace WhiteRoom
             this.okButton.Text = "&OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
+            // labelCopyrightIcons
+            // 
+            this.labelCopyrightIcons.AutoSize = true;
+            this.labelCopyrightIcons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCopyrightIcons.Location = new System.Drawing.Point(143, 78);
+            this.labelCopyrightIcons.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.labelCopyrightIcons.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCopyrightIcons.Name = "labelCopyrightIcons";
+            this.labelCopyrightIcons.Size = new System.Drawing.Size(271, 17);
+            this.labelCopyrightIcons.TabIndex = 25;
+            this.labelCopyrightIcons.Text = "CopyrightIcons";
+            this.labelCopyrightIcons.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
@@ -180,5 +195,6 @@ namespace WhiteRoom
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox txtIpsum;
+        private System.Windows.Forms.Label labelCopyrightIcons;
     }
 }

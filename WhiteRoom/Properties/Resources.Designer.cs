@@ -61,6 +61,15 @@ namespace WhiteRoom.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fugue Icons (C) 2013 Yusuke Kamiyamane.
+        /// </summary>
+        internal static string CopyrightIcons {
+            get {
+                return ResourceManager.GetString("CopyrightIcons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap edit_clear {

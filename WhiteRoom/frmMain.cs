@@ -305,15 +305,15 @@ namespace WhiteRoom
             }
             else
             {
-                pnlPage.Height = this.Height;
+                pnlPage.Height = this.ClientSize.Height;
             }
-            if (pnlPage.Height > this.Height)
+            if (pnlPage.Height > this.ClientSize.Height)
             {
-                pnlPage.Height = this.Height;
+                pnlPage.Height = this.ClientSize.Height;
             }
             if (mnuMenuStrip.Visible)
             {
-                pnlPage.Height = pnlPage.Height - mnuMenuStrip.Height * 2 - 3;
+                pnlPage.Height = pnlPage.Height - mnuMenuStrip.Height;
             }
             txtPage.Width = pnlPage.Width - (Properties.Settings.Default.PagePadding * 2);
             txtPage.Top = Properties.Settings.Default.PagePadding;
@@ -488,6 +488,8 @@ namespace WhiteRoom
             dlgSave.AddExtension = true;
             preferencesToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+,";
             statisticsToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+/";
+
+            ReScale();
         }
 
         #endregion

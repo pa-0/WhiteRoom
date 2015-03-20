@@ -25,7 +25,7 @@ namespace WhiteRoom.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        [global::System.Configuration.DefaultSettingValueAttribute("WhiteSmoke")]
         public global::System.Drawing.Color PageColor {
             get {
                 return ((global::System.Drawing.Color)(this["PageColor"]));
@@ -37,7 +37,7 @@ namespace WhiteRoom.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Lime")]
+        [global::System.Configuration.DefaultSettingValueAttribute("64, 64, 64")]
         public global::System.Drawing.Color ForegroundColor {
             get {
                 return ((global::System.Drawing.Color)(this["ForegroundColor"]));
@@ -49,7 +49,7 @@ namespace WhiteRoom.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        [global::System.Configuration.DefaultSettingValueAttribute("WhiteSmoke")]
         public global::System.Drawing.Color BackgroundColor {
             get {
                 return ((global::System.Drawing.Color)(this["BackgroundColor"]));
@@ -61,7 +61,7 @@ namespace WhiteRoom.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Courier New, 12pt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI, 9.75pt")]
         public global::System.Drawing.Font Font {
             get {
                 return ((global::System.Drawing.Font)(this["Font"]));
