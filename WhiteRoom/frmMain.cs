@@ -206,6 +206,7 @@ namespace WhiteRoom
                     HandleAdditionalScreens(0);
                 }
             }
+            ReScale();
             txtPage.Focus();
         }
 
