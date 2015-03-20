@@ -1022,16 +1022,19 @@ namespace WhiteRoom
         {
             string latest = Eclectic.CheckForUpdate();
 
-            if (latest == System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString())
+            if (latest.Trim() != "") //show nothing if errors occurred
             {
-                MessageBox.Show("Your version of WhiteRoom is up to date.", "Update", MessageBoxButtons.OK);
-            }
-            else
-            {
-                DialogResult response = MessageBox.Show("A new version (" + latest + ") of WhiteRoom is available.\n\nWould you like to download it?", "New Version Available", MessageBoxButtons.YesNo);
-                if (response == DialogResult.Yes)
+                if (latest == System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString())
                 {
-                    System.Diagnostics.Process.Start(Properties.Settings.Default.WhiteRoomURL);
+                    MessageBox.Show("Your version of WhiteRoom is up to date.", "Update", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    DialogResult response = MessageBox.Show("A new version (" + latest + ") of WhiteRoom is available.\n\nWould you like to download it?", "New Version Available", MessageBoxButtons.YesNo);
+                    if (response == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(Properties.Settings.Default.WhiteRoomURL);
+                    }
                 }
             }
         }
