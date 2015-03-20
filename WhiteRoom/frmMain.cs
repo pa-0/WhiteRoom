@@ -289,12 +289,15 @@ namespace WhiteRoom
             }
             else
             {
-                pnlPage.Width = this.ClientSize.Width - (pnlNav.Visible ? pnlNav.Width : 0);
+                pnlPage.Width = this.ClientSize.Width;
             }
-
             if (pnlPage.Width > this.ClientSize.Width)
             {
-                pnlPage.Width = this.ClientSize.Width - (pnlNav.Visible ? pnlNav.Width : 0);
+                pnlPage.Width = this.ClientSize.Width;
+            }
+            if (pnlNav.Visible)
+            {
+                pnlPage.Width = pnlPage.Width - pnlNav.Width;
             }
 
             pnlPage.Left = (this.ClientSize.Width - (pnlPage.Width + (pnlNav.Visible ? pnlNav.Width : 0))) / 2;
