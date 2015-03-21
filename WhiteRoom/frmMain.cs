@@ -184,6 +184,12 @@ namespace WhiteRoom
 
         private void ToggleState()
         {
+            //bugfix for : if window was manually maximized beforehand by user
+            if (this.WindowState == FormWindowState.Maximized && this.FormBorderStyle != System.Windows.Forms.FormBorderStyle.None)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+
             if (this.WindowState == FormWindowState.Normal)
             {
                 mnuMenuStrip.Hide();
