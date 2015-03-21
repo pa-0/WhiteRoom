@@ -322,6 +322,7 @@ namespace WhiteRoom
             if (enableIt)
             {
                 this.Resize += frmMain_ResizeMinMax;
+                this.ResizeBegin += frmMain_ResizeBegin;
                 this.ResizeEnd += frmMain_ResizeSpecial;
             }
             else
@@ -334,6 +335,7 @@ namespace WhiteRoom
         {
             this.Resize -= frmMain_Resize;
             this.Resize -= frmMain_ResizeMinMax;
+            this.ResizeBegin -= frmMain_ResizeBegin;
             this.ResizeEnd -= frmMain_Resize;
         }
 
@@ -595,6 +597,7 @@ namespace WhiteRoom
 
         private void frmMain_ResizeSpecial(object sender, EventArgs e)
         {
+            ResumeLayout();
             if (MouseButtons == MouseButtons.Left)
                 return;
             if (this.lastWindowSize == this.Size)
@@ -606,6 +609,12 @@ namespace WhiteRoom
         private void frmMain_Resize(object sender, EventArgs e)
         {
             ReScale();
+        }
+
+        private void frmMain_ResizeBegin(object sender, EventArgs e)
+        {
+            //see http://stackoverflow.com/a/7759951/883015
+            SuspendLayout();
         }
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
