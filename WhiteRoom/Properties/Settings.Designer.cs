@@ -340,5 +340,17 @@ namespace WhiteRoom.Properties {
                 this["BackImageEnable"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PageTopOffset {
+            get {
+                return ((int)(this["PageTopOffset"]));
+            }
+            set {
+                this["PageTopOffset"] = value;
+            }
+        }
     }
 }

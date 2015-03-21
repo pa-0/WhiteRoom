@@ -128,6 +128,7 @@ namespace WhiteRoom
             txtPageHeight.Text = Properties.Settings.Default.PageHeight.ToString();
             chkPageHeight.Checked = (Properties.Settings.Default.PageHeight == 0);
             txtPageMargin.Text = Properties.Settings.Default.PagePadding.ToString();
+            txtPageTopOffset.Text = Properties.Settings.Default.PageTopOffset.ToString();
             btnPageColor.BackColor = Properties.Settings.Default.PageColor;
             chkPageShowBorder.Checked = Properties.Settings.Default.ShowPageBorder;
 
@@ -494,6 +495,23 @@ namespace WhiteRoom
             Properties.Settings.Default.BackImageEnable = chkBackImage.Checked;
             Properties.Settings.Default.Save();
             parent.Sync();
+        }
+
+        private void txtPageTopOffset_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPageTopOffset.Text.Trim() != "" & IsValidNumber(txtPageTopOffset.Text))
+            {
+                if (System.Convert.ToInt32(txtPageTopOffset.Text) >= 0 & (System.Convert.ToInt32(txtPageTopOffset.Text) <= 100)) // arbitrarily assign the max to 100 pixels
+                {
+                    Properties.Settings.Default.PageTopOffset = Int32.Parse(txtPageTopOffset.Text);
+                    Properties.Settings.Default.Save();
+                    parent.ReScale();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Page Top offset. You may only use numeric characters totalling 100 or less.");
+                }
+            }
         }
     }
 }

@@ -325,7 +325,7 @@ namespace WhiteRoom
             }
             if (pnlNav.Visible)
             {
-                pnlPage.Width = pnlPage.Width - pnlNav.Width;
+                pnlPage.Width -= pnlNav.Width;
             }
 
             pnlPage.Left = (this.ClientSize.Width - (pnlPage.Width + (pnlNav.Visible ? pnlNav.Width : 0))) / 2;
@@ -342,9 +342,19 @@ namespace WhiteRoom
             {
                 pnlPage.Height = this.ClientSize.Height;
             }
+
+            pnlPage.Top = 0;
+
             if (mnuMenuStrip.Visible)
             {
-                pnlPage.Height = pnlPage.Height - mnuMenuStrip.Height;
+                pnlPage.Height -= mnuMenuStrip.Height;
+                pnlPage.Top += mnuMenuStrip.Height;
+            }
+
+            if (Properties.Settings.Default.PageTopOffset > 0)
+            {
+                pnlPage.Top += Properties.Settings.Default.PageTopOffset;
+                pnlPage.Height -= Properties.Settings.Default.PageTopOffset;
             }
             txtPage.Width = pnlPage.Width - (Properties.Settings.Default.PagePadding * 2);
             txtPage.Top = Properties.Settings.Default.PagePadding;

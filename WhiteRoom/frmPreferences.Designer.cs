@@ -32,6 +32,7 @@ namespace WhiteRoom
             this.tabPreferences = new System.Windows.Forms.TabControl();
             this.tabEnvironment = new System.Windows.Forms.TabPage();
             this.grpGeneral = new System.Windows.Forms.GroupBox();
+            this.chkBackImage = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBackImage = new System.Windows.Forms.Button();
             this.chkNeutralHighlighting = new System.Windows.Forms.CheckBox();
@@ -42,6 +43,8 @@ namespace WhiteRoom
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpPage = new System.Windows.Forms.GroupBox();
+            this.txtPageTopOffset = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.chkPageShowBorder = new System.Windows.Forms.CheckBox();
             this.chkPageHeight = new System.Windows.Forms.CheckBox();
             this.chkPageWidth = new System.Windows.Forms.CheckBox();
@@ -79,7 +82,6 @@ namespace WhiteRoom
             this.clrPicker = new System.Windows.Forms.ColorDialog();
             this.fntPicker = new System.Windows.Forms.FontDialog();
             this.imgPicker = new System.Windows.Forms.OpenFileDialog();
-            this.chkBackImage = new System.Windows.Forms.CheckBox();
             this.tabPreferences.SuspendLayout();
             this.tabEnvironment.SuspendLayout();
             this.grpGeneral.SuspendLayout();
@@ -94,7 +96,7 @@ namespace WhiteRoom
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(305, 443);
+            this.btnOK.Location = new System.Drawing.Point(305, 460);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -109,7 +111,7 @@ namespace WhiteRoom
             this.tabPreferences.Location = new System.Drawing.Point(12, 12);
             this.tabPreferences.Name = "tabPreferences";
             this.tabPreferences.SelectedIndex = 0;
-            this.tabPreferences.Size = new System.Drawing.Size(368, 425);
+            this.tabPreferences.Size = new System.Drawing.Size(368, 442);
             this.tabPreferences.TabIndex = 1;
             // 
             // tabEnvironment
@@ -121,7 +123,7 @@ namespace WhiteRoom
             this.tabEnvironment.Location = new System.Drawing.Point(4, 22);
             this.tabEnvironment.Name = "tabEnvironment";
             this.tabEnvironment.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEnvironment.Size = new System.Drawing.Size(360, 399);
+            this.tabEnvironment.Size = new System.Drawing.Size(360, 416);
             this.tabEnvironment.TabIndex = 0;
             this.tabEnvironment.Text = "Environment";
             this.tabEnvironment.UseVisualStyleBackColor = true;
@@ -138,12 +140,22 @@ namespace WhiteRoom
             this.grpGeneral.Controls.Add(this.btnBackColor);
             this.grpGeneral.Controls.Add(this.label2);
             this.grpGeneral.Controls.Add(this.label1);
-            this.grpGeneral.Location = new System.Drawing.Point(6, 270);
+            this.grpGeneral.Location = new System.Drawing.Point(6, 289);
             this.grpGeneral.Name = "grpGeneral";
             this.grpGeneral.Size = new System.Drawing.Size(348, 124);
             this.grpGeneral.TabIndex = 2;
             this.grpGeneral.TabStop = false;
             this.grpGeneral.Text = "General Settings";
+            // 
+            // chkBackImage
+            // 
+            this.chkBackImage.AutoSize = true;
+            this.chkBackImage.Location = new System.Drawing.Point(9, 48);
+            this.chkBackImage.Name = "chkBackImage";
+            this.chkBackImage.Size = new System.Drawing.Size(15, 14);
+            this.chkBackImage.TabIndex = 11;
+            this.chkBackImage.UseVisualStyleBackColor = true;
+            this.chkBackImage.CheckedChanged += new System.EventHandler(this.chkBackImage_CheckedChanged);
             // 
             // label5
             // 
@@ -203,10 +215,10 @@ namespace WhiteRoom
             // 
             // trcOpacity
             // 
-            this.trcOpacity.BackColor = System.Drawing.SystemColors.Control;
+            this.trcOpacity.BackColor = System.Drawing.SystemColors.Window;
             this.trcOpacity.Location = new System.Drawing.Point(70, 70);
             this.trcOpacity.Maximum = 100;
-            this.trcOpacity.Minimum = 50;
+            this.trcOpacity.Minimum = 25;
             this.trcOpacity.Name = "trcOpacity";
             this.trcOpacity.Size = new System.Drawing.Size(104, 45);
             this.trcOpacity.TabIndex = 3;
@@ -243,6 +255,8 @@ namespace WhiteRoom
             // 
             // grpPage
             // 
+            this.grpPage.Controls.Add(this.txtPageTopOffset);
+            this.grpPage.Controls.Add(this.label4);
             this.grpPage.Controls.Add(this.chkPageShowBorder);
             this.grpPage.Controls.Add(this.chkPageHeight);
             this.grpPage.Controls.Add(this.chkPageWidth);
@@ -256,15 +270,32 @@ namespace WhiteRoom
             this.grpPage.Controls.Add(this.lblWidth);
             this.grpPage.Location = new System.Drawing.Point(6, 143);
             this.grpPage.Name = "grpPage";
-            this.grpPage.Size = new System.Drawing.Size(348, 121);
+            this.grpPage.Size = new System.Drawing.Size(348, 140);
             this.grpPage.TabIndex = 1;
             this.grpPage.TabStop = false;
             this.grpPage.Text = "Page Settings";
             // 
+            // txtPageTopOffset
+            // 
+            this.txtPageTopOffset.Location = new System.Drawing.Point(80, 89);
+            this.txtPageTopOffset.Name = "txtPageTopOffset";
+            this.txtPageTopOffset.Size = new System.Drawing.Size(102, 20);
+            this.txtPageTopOffset.TabIndex = 12;
+            this.txtPageTopOffset.TextChanged += new System.EventHandler(this.txtPageTopOffset_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Top offset:";
+            // 
             // chkPageShowBorder
             // 
             this.chkPageShowBorder.AutoSize = true;
-            this.chkPageShowBorder.Location = new System.Drawing.Point(188, 95);
+            this.chkPageShowBorder.Location = new System.Drawing.Point(188, 117);
             this.chkPageShowBorder.Name = "chkPageShowBorder";
             this.chkPageShowBorder.Size = new System.Drawing.Size(87, 17);
             this.chkPageShowBorder.TabIndex = 10;
@@ -320,7 +351,7 @@ namespace WhiteRoom
             // 
             // btnPageColor
             // 
-            this.btnPageColor.Location = new System.Drawing.Point(80, 93);
+            this.btnPageColor.Location = new System.Drawing.Point(80, 115);
             this.btnPageColor.Name = "btnPageColor";
             this.btnPageColor.Size = new System.Drawing.Size(70, 18);
             this.btnPageColor.TabIndex = 4;
@@ -330,7 +361,7 @@ namespace WhiteRoom
             // lblPageColor
             // 
             this.lblPageColor.AutoSize = true;
-            this.lblPageColor.Location = new System.Drawing.Point(6, 96);
+            this.lblPageColor.Location = new System.Drawing.Point(6, 118);
             this.lblPageColor.Name = "lblPageColor";
             this.lblPageColor.Size = new System.Drawing.Size(34, 13);
             this.lblPageColor.TabIndex = 3;
@@ -464,7 +495,7 @@ namespace WhiteRoom
             this.tabApplication.Location = new System.Drawing.Point(4, 22);
             this.tabApplication.Name = "tabApplication";
             this.tabApplication.Padding = new System.Windows.Forms.Padding(3);
-            this.tabApplication.Size = new System.Drawing.Size(360, 399);
+            this.tabApplication.Size = new System.Drawing.Size(360, 416);
             this.tabApplication.TabIndex = 1;
             this.tabApplication.Text = "Application";
             this.tabApplication.UseVisualStyleBackColor = true;
@@ -620,22 +651,12 @@ namespace WhiteRoom
             this.imgPicker.DefaultExt = "*.png";
             this.imgPicker.Filter = "Images|*.png;*.jpg;*.gif;*.bmp;*.jpeg|All files|*.*";
             // 
-            // chkBackImage
-            // 
-            this.chkBackImage.AutoSize = true;
-            this.chkBackImage.Location = new System.Drawing.Point(9, 48);
-            this.chkBackImage.Name = "chkBackImage";
-            this.chkBackImage.Size = new System.Drawing.Size(15, 14);
-            this.chkBackImage.TabIndex = 11;
-            this.chkBackImage.UseVisualStyleBackColor = true;
-            this.chkBackImage.CheckedChanged += new System.EventHandler(this.chkBackImage_CheckedChanged);
-            // 
             // frmPreferences
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 475);
+            this.ClientSize = new System.Drawing.Size(392, 490);
             this.Controls.Add(this.tabPreferences);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -716,5 +737,7 @@ namespace WhiteRoom
         private System.Windows.Forms.OpenFileDialog imgPicker;
         private System.Windows.Forms.CheckBox chkRescale;
         private System.Windows.Forms.CheckBox chkBackImage;
+        private System.Windows.Forms.TextBox txtPageTopOffset;
+        private System.Windows.Forms.Label label4;
     }
 }
