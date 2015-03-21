@@ -36,6 +36,7 @@ namespace WhiteRoom
         private int highlight;
         private int highlightText;
         private uint blinkRate;
+        private FormWindowState lastWindowState;
 
         public frmMain()
         {
@@ -184,32 +185,36 @@ namespace WhiteRoom
 
         private void ToggleState()
         {
+            //save current window state
+            FormWindowState currentWindowState = this.WindowState;
+
             //bugfix for : if window was manually maximized beforehand by user
             if (this.WindowState == FormWindowState.Maximized && this.FormBorderStyle != System.Windows.Forms.FormBorderStyle.None)
             {
                 this.WindowState = FormWindowState.Normal;
             }
 
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                mnuMenuStrip.Hide();
-                pnlPage.Top = 0;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                this.WindowState = FormWindowState.Maximized;
-                if (Properties.Settings.Default.MultipleMonitors)
-                {
-                    HandleAdditionalScreens(1);
-                }
-            }
-            else
+            if (this.FormBorderStyle == System.Windows.Forms.FormBorderStyle.None)
             {
                 mnuMenuStrip.Show();
                 pnlPage.Top = mnuMenuStrip.Height;
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-                this.WindowState = FormWindowState.Normal;
+                this.WindowState = this.lastWindowState;
                 if (Properties.Settings.Default.MultipleMonitors)
                 {
                     HandleAdditionalScreens(0);
+                }
+            }
+            else
+            {
+                mnuMenuStrip.Hide();
+                pnlPage.Top = 0;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.lastWindowState = currentWindowState;
+                this.WindowState = FormWindowState.Maximized;
+                if (Properties.Settings.Default.MultipleMonitors)
+                {
+                    HandleAdditionalScreens(1);
                 }
             }
             ReScale();
