@@ -9,8 +9,8 @@ The original content for **DarkRoom**:
 - About: http://jjafuller.com/dark-room  
 - Source: https://github.com/jjafuller/DarkRoomW  
   
-[Fugue Icons](http://p.yusukekamiyamane.com/)  
-(C) 2013 . All rights reserved.  
+[Fugue Icons](p.yusukekamiyamane.com)  
+(C) 2015 Yusuke Kamiyamane. All rights reserved. Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)  
   
 [Subtle Patterns](http://subtlepatterns.com/)  
-(C) Atle Mo. Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+(C) 2015 Atle Mo. Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)  
