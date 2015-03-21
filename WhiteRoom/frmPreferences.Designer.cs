@@ -82,6 +82,7 @@ namespace WhiteRoom
             this.clrPicker = new System.Windows.Forms.ColorDialog();
             this.fntPicker = new System.Windows.Forms.FontDialog();
             this.imgPicker = new System.Windows.Forms.OpenFileDialog();
+            this.chkDoubleBuffered = new System.Windows.Forms.CheckBox();
             this.tabPreferences.SuspendLayout();
             this.tabEnvironment.SuspendLayout();
             this.grpGeneral.SuspendLayout();
@@ -502,6 +503,7 @@ namespace WhiteRoom
             // 
             // grpAdvanced
             // 
+            this.grpAdvanced.Controls.Add(this.chkDoubleBuffered);
             this.grpAdvanced.Controls.Add(this.chkRescale);
             this.grpAdvanced.Controls.Add(this.txtCursorBlinkTime);
             this.grpAdvanced.Controls.Add(this.label3);
@@ -509,7 +511,7 @@ namespace WhiteRoom
             this.grpAdvanced.Controls.Add(this.chkContextMenu);
             this.grpAdvanced.Location = new System.Drawing.Point(6, 194);
             this.grpAdvanced.Name = "grpAdvanced";
-            this.grpAdvanced.Size = new System.Drawing.Size(348, 129);
+            this.grpAdvanced.Size = new System.Drawing.Size(348, 142);
             this.grpAdvanced.TabIndex = 1;
             this.grpAdvanced.TabStop = false;
             this.grpAdvanced.Text = "Advanced Settings";
@@ -517,17 +519,17 @@ namespace WhiteRoom
             // chkRescale
             // 
             this.chkRescale.AutoSize = true;
-            this.chkRescale.Location = new System.Drawing.Point(13, 29);
+            this.chkRescale.Location = new System.Drawing.Point(13, 19);
             this.chkRescale.Name = "chkRescale";
-            this.chkRescale.Size = new System.Drawing.Size(311, 17);
+            this.chkRescale.Size = new System.Drawing.Size(312, 17);
             this.chkRescale.TabIndex = 10;
-            this.chkRescale.Text = "Rescale controls only on mouse release (better performance)";
+            this.chkRescale.Text = "Rescale controls only on mouse release (Better performance)";
             this.chkRescale.UseVisualStyleBackColor = true;
             this.chkRescale.CheckedChanged += new System.EventHandler(this.chkRescale_CheckedChanged);
             // 
             // txtCursorBlinkTime
             // 
-            this.txtCursorBlinkTime.Location = new System.Drawing.Point(130, 98);
+            this.txtCursorBlinkTime.Location = new System.Drawing.Point(130, 111);
             this.txtCursorBlinkTime.Name = "txtCursorBlinkTime";
             this.txtCursorBlinkTime.Size = new System.Drawing.Size(76, 20);
             this.txtCursorBlinkTime.TabIndex = 9;
@@ -536,7 +538,7 @@ namespace WhiteRoom
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 101);
+            this.label3.Location = new System.Drawing.Point(10, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 8;
@@ -545,7 +547,7 @@ namespace WhiteRoom
             // chkLocalCacheFile
             // 
             this.chkLocalCacheFile.AutoSize = true;
-            this.chkLocalCacheFile.Location = new System.Drawing.Point(13, 75);
+            this.chkLocalCacheFile.Location = new System.Drawing.Point(13, 88);
             this.chkLocalCacheFile.Name = "chkLocalCacheFile";
             this.chkLocalCacheFile.Size = new System.Drawing.Size(204, 17);
             this.chkLocalCacheFile.TabIndex = 1;
@@ -556,7 +558,7 @@ namespace WhiteRoom
             // chkContextMenu
             // 
             this.chkContextMenu.AutoSize = true;
-            this.chkContextMenu.Location = new System.Drawing.Point(13, 52);
+            this.chkContextMenu.Location = new System.Drawing.Point(13, 65);
             this.chkContextMenu.Name = "chkContextMenu";
             this.chkContextMenu.Size = new System.Drawing.Size(268, 17);
             this.chkContextMenu.TabIndex = 0;
@@ -651,6 +653,17 @@ namespace WhiteRoom
             this.imgPicker.DefaultExt = "*.png";
             this.imgPicker.Filter = "Images|*.png;*.jpg;*.gif;*.bmp;*.jpeg|All files|*.*";
             // 
+            // chkDoubleBuffered
+            // 
+            this.chkDoubleBuffered.AutoSize = true;
+            this.chkDoubleBuffered.Location = new System.Drawing.Point(13, 42);
+            this.chkDoubleBuffered.Name = "chkDoubleBuffered";
+            this.chkDoubleBuffered.Size = new System.Drawing.Size(310, 17);
+            this.chkDoubleBuffered.TabIndex = 11;
+            this.chkDoubleBuffered.Text = "2x buffered window (Better performance, uses more memory)";
+            this.chkDoubleBuffered.UseVisualStyleBackColor = true;
+            this.chkDoubleBuffered.CheckedChanged += new System.EventHandler(this.chkDoubleBuffered_CheckedChanged);
+            // 
             // frmPreferences
             // 
             this.AcceptButton = this.btnOK;
@@ -739,5 +752,6 @@ namespace WhiteRoom
         private System.Windows.Forms.CheckBox chkBackImage;
         private System.Windows.Forms.TextBox txtPageTopOffset;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkDoubleBuffered;
     }
 }

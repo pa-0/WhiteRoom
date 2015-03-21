@@ -71,7 +71,6 @@ namespace WhiteRoom
             this.toolStripMenuMainIcon = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrAutosave = new System.Windows.Forms.Timer(this.components);
             this.pnlPage = new System.Windows.Forms.Panel();
-            this.txtPage = new WhiteRoom.DarkTextBox(this.components);
             this.contextMenuPage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,6 +95,7 @@ namespace WhiteRoom
             this.dlgPageSetup = new System.Windows.Forms.PageSetupDialog();
             this.dlgPrint = new System.Windows.Forms.PrintDialog();
             this.prtDoc = new System.Drawing.Printing.PrintDocument();
+            this.txtPage = new WhiteRoom.DarkTextBox(this.components);
             this.mnuMenuStrip.SuspendLayout();
             this.pnlPage.SuspendLayout();
             this.contextMenuPage.SuspendLayout();
@@ -448,26 +448,6 @@ namespace WhiteRoom
             this.pnlPage.Size = new System.Drawing.Size(551, 448);
             this.pnlPage.TabIndex = 1;
             // 
-            // txtPage
-            // 
-            this.txtPage.AcceptsTab = true;
-            this.txtPage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPage.ContextMenuStrip = this.contextMenuPage;
-            this.txtPage.EnableAutoDragDrop = true;
-            this.txtPage.Location = new System.Drawing.Point(10, 10);
-            this.txtPage.Name = "txtPage";
-            this.txtPage.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.txtPage.Size = new System.Drawing.Size(541, 438);
-            this.txtPage.TabIndex = 0;
-            this.txtPage.Text = "";
-            this.txtPage.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtPage_DragDrop);
-            this.txtPage.TextChanged += new System.EventHandler(this.txtPage_TextChanged);
-            this.txtPage.GotFocus += new System.EventHandler(this.txtPage_GotFocus);
-            this.txtPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPage_KeyDown);
-            this.txtPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPage_KeyPress);
-            this.txtPage.LostFocus += new System.EventHandler(this.txtPage_LostFocus);
-            this.txtPage.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.txtPage_MouseWheel);
-            // 
             // contextMenuPage
             // 
             this.contextMenuPage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -661,6 +641,26 @@ namespace WhiteRoom
             // 
             this.prtDoc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prtDoc_PrintPage);
             // 
+            // txtPage
+            // 
+            this.txtPage.AcceptsTab = true;
+            this.txtPage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPage.ContextMenuStrip = this.contextMenuPage;
+            this.txtPage.EnableAutoDragDrop = true;
+            this.txtPage.Location = new System.Drawing.Point(10, 10);
+            this.txtPage.Name = "txtPage";
+            this.txtPage.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.txtPage.Size = new System.Drawing.Size(541, 438);
+            this.txtPage.TabIndex = 0;
+            this.txtPage.Text = "";
+            this.txtPage.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtPage_DragDrop);
+            this.txtPage.TextChanged += new System.EventHandler(this.txtPage_TextChanged);
+            this.txtPage.GotFocus += new System.EventHandler(this.txtPage_GotFocus);
+            this.txtPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPage_KeyDown);
+            this.txtPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPage_KeyPress);
+            this.txtPage.LostFocus += new System.EventHandler(this.txtPage_LostFocus);
+            this.txtPage.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.txtPage_MouseWheel);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -670,6 +670,7 @@ namespace WhiteRoom
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.pnlPage);
             this.Controls.Add(this.mnuMenuStrip);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuMenuStrip;
             this.MinimumSize = new System.Drawing.Size(273, 182);

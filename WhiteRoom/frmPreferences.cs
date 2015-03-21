@@ -163,6 +163,7 @@ namespace WhiteRoom
 
             // advanced settings
             chkRescale.Checked = Properties.Settings.Default.RescaleOnMouseRelease;
+            chkDoubleBuffered.Checked = Properties.Settings.Default.DoubleBuffered;
             chkContextMenu.Checked = Properties.Settings.Default.OpenWithContextMenu;
             chkLocalCacheFile.Checked = Properties.Settings.Default.LocalCacheFile;
             txtCursorBlinkTime.Text = Properties.Settings.Default.CaretBlinkRate.ToString();
@@ -512,6 +513,13 @@ namespace WhiteRoom
                     MessageBox.Show("Invalid Page Top offset. You may only use numeric characters totalling 100 or less.");
                 }
             }
+        }
+
+        private void chkDoubleBuffered_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.DoubleBuffered = chkDoubleBuffered.Checked;
+            Properties.Settings.Default.Save();
+            parent.Sync();
         }
     }
 }

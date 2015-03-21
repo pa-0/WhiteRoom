@@ -281,6 +281,9 @@ namespace WhiteRoom
             int delta = this.Height - this.ClientRectangle.Height;
             this.MinimumSize = new Size(this.MinimumSize.Width, delta + pnlNav.Height + mnuMenuStrip.Height + Properties.Settings.Default.PageTopOffset);
 
+            //DoubleBuffered window
+            this.DoubleBuffered = Properties.Settings.Default.DoubleBuffered;
+
             this.BackColor = Properties.Settings.Default.BackgroundColor;
             if (Properties.Settings.Default.BackImageEnable)
             {
@@ -378,12 +381,14 @@ namespace WhiteRoom
                 pnlPage.Height = this.ClientSize.Height;
             }
 
-            pnlPage.Top = 0;
-
             if (mnuMenuStrip.Visible)
             {
+                pnlPage.Top = mnuMenuStrip.Height;
                 pnlPage.Height -= mnuMenuStrip.Height;
-                pnlPage.Top += mnuMenuStrip.Height;
+            }
+            else
+            {
+                pnlPage.Top = 0;
             }
 
             if (Properties.Settings.Default.PageTopOffset > 0)

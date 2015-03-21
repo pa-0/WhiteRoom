@@ -352,5 +352,17 @@ namespace WhiteRoom.Properties {
                 this["PageTopOffset"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DoubleBuffered {
+            get {
+                return ((bool)(this["DoubleBuffered"]));
+            }
+            set {
+                this["DoubleBuffered"] = value;
+            }
+        }
     }
 }
