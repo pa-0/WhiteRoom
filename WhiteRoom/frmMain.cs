@@ -37,6 +37,7 @@ namespace WhiteRoom
         private int highlightText;
         private uint blinkRate;
         private FormWindowState lastWindowState;
+        private Size lastWindowSize;
 
         public frmMain()
         {
@@ -185,6 +186,9 @@ namespace WhiteRoom
 
         private void ToggleState()
         {
+            //avoid double call to ReScale();
+            DisableResizeEvents();
+
             //save current window state
             FormWindowState currentWindowState = this.WindowState;
 
@@ -219,6 +223,9 @@ namespace WhiteRoom
             }
             ReScale();
             txtPage.Focus();
+
+            //Re-enable Resize events;
+            SetResizeEvents();
         }
 
         public void HandleAdditionalScreens(int mode)
@@ -270,6 +277,10 @@ namespace WhiteRoom
 
         public void Sync()
         {
+            //Better minimum height, based on pnlNav height
+            int delta = this.Height - this.ClientRectangle.Height;
+            this.MinimumSize = new Size(this.MinimumSize.Width, delta + pnlNav.Height + mnuMenuStrip.Height + Properties.Settings.Default.PageTopOffset);
+
             this.BackColor = Properties.Settings.Default.BackgroundColor;
             if (Properties.Settings.Default.BackImageEnable)
             {
@@ -301,23 +312,34 @@ namespace WhiteRoom
             {
                 HandleAdditionalScreens((this.WindowState == FormWindowState.Normal) ? 0 : 1);
             }
-            if (Properties.Settings.Default.RescaleOnMouseRelease)
-            {
-                this.Resize -= frmMain_Resize;
-                this.Resize -= frmMain_ResizeMaxMin;
-                this.ResizeEnd -= frmMain_Resize;
+            SetResizeEvents();
+        }
 
-                this.Resize += frmMain_ResizeMaxMin;
-                this.ResizeEnd += frmMain_Resize;
+        public void SetRescaleOnMouseRelease(bool enableIt)
+        {
+            DisableResizeEvents();
+
+            if (enableIt)
+            {
+                this.Resize += frmMain_ResizeMinMax;
+                this.ResizeEnd += frmMain_ResizeSpecial;
             }
             else
             {
-                this.Resize -= frmMain_Resize;
-                this.Resize -= frmMain_ResizeMaxMin;
-                this.ResizeEnd -= frmMain_Resize;
-
                 this.Resize += frmMain_Resize;
             }
+        }
+
+        public void DisableResizeEvents()
+        {
+            this.Resize -= frmMain_Resize;
+            this.Resize -= frmMain_ResizeMinMax;
+            this.ResizeEnd -= frmMain_Resize;
+        }
+
+        public void SetResizeEvents()
+        {
+            SetRescaleOnMouseRelease(Properties.Settings.Default.RescaleOnMouseRelease);
         }
 
         public void ReScale()
@@ -562,14 +584,23 @@ namespace WhiteRoom
             }
         }
 
-        FormWindowState frmMain_LastWindowState = FormWindowState.Minimized;
-        private void frmMain_ResizeMaxMin(object sender, EventArgs e)
+        private void frmMain_ResizeMinMax(object sender, EventArgs e)
         {
-            if (this.WindowState != frmMain_LastWindowState)
+            if (this.WindowState != this.lastWindowState)
             {
-                frmMain_LastWindowState = this.WindowState;
+                this.lastWindowState = this.WindowState;
                 ReScale();
             }
+        }
+
+        private void frmMain_ResizeSpecial(object sender, EventArgs e)
+        {
+            if (MouseButtons == MouseButtons.Left)
+                return;
+            if (this.lastWindowSize == this.Size)
+                return;
+            this.lastWindowSize = this.Size;
+            ReScale();
         }
 
         private void frmMain_Resize(object sender, EventArgs e)
