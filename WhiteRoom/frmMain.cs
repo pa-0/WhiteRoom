@@ -568,7 +568,7 @@ namespace WhiteRoom
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(27))
+            if (e.KeyChar == (char)Keys.Escape)
             {
                 ToggleState();
             }
@@ -838,7 +838,7 @@ namespace WhiteRoom
 
         private void txtPage_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(27))
+            if (e.KeyChar == (char)Keys.Escape)
             {
                 ToggleState();
             }
