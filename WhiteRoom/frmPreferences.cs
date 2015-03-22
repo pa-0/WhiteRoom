@@ -44,8 +44,31 @@ namespace WhiteRoom
         #region "Helper Functions"
 
         private void CacheSettings() {
+            string CacheFile = Application.StartupPath + "\\WhiteRoom.exe.config";
+            if (!File.Exists(CacheFile))
+            {
+                var config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+                if (!File.Exists(config.FilePath))
+                {
+                    return; //original non-existent... ignore cache
+                }
+                try
+                {
+                    File.Copy(config.FilePath,CacheFile);
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    MessageBox.Show("Config Cache Error: " + e.Message);
+                    return; //ignore cache, if failed
+                }
+                if (!File.Exists(CacheFile))
+                {
+                    return; //ignore cache, if failed
+                }
+            }
+            
             XmlDocument doc = new XmlDocument();
-            doc.Load(Application.StartupPath + "\\WhiteRoom.exe.config");
+            doc.Load(CacheFile);
 
             XmlNodeList nodes;
             nodes = doc.SelectNodes("//setting");
