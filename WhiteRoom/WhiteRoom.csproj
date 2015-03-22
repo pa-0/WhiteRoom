@@ -153,6 +153,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\MainLogo.png" />
     <None Include="Resources\icons\edit-clear.png" />
     <None Include="Resources\icons\edit-copy.png" />
     <None Include="Resources\icons\edit-cut.png" />

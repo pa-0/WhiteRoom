@@ -272,6 +272,16 @@ namespace WhiteRoom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MainLogo {
+            get {
+                object obj = ResourceManager.GetObject("MainLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_mainicon {
             get {
                 object obj = ResourceManager.GetObject("menu_mainicon", resourceCulture);
