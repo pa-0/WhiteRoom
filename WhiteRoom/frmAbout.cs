@@ -131,5 +131,10 @@ namespace WhiteRoom
             this.Close();
         }
 
+        private void linkHomepage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Properties.Settings.Default.WhiteRoomURL);
+        }
+
     }
 }

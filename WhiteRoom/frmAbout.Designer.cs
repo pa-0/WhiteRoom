@@ -41,6 +41,7 @@ namespace WhiteRoom
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.linkHomepage = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -134,12 +135,14 @@ namespace WhiteRoom
             // 
             this.okButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.okButton.Location = new System.Drawing.Point(341, 246);
             this.okButton.MinimumSize = new System.Drawing.Size(0, 23);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
+            this.okButton.UseVisualStyleBackColor = false;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // labelProductName
@@ -218,12 +221,26 @@ namespace WhiteRoom
             this.panel2.Size = new System.Drawing.Size(325, 38);
             this.panel2.TabIndex = 20;
             // 
+            // linkHomepage
+            // 
+            this.linkHomepage.AutoSize = true;
+            this.linkHomepage.LinkColor = System.Drawing.Color.Red;
+            this.linkHomepage.Location = new System.Drawing.Point(97, 251);
+            this.linkHomepage.Name = "linkHomepage";
+            this.linkHomepage.Size = new System.Drawing.Size(81, 13);
+            this.linkHomepage.TabIndex = 25;
+            this.linkHomepage.TabStop = true;
+            this.linkHomepage.Text = "Visit Homepage";
+            this.linkHomepage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkHomepage_LinkClicked);
+            // 
             // frmAbout
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(428, 281);
+            this.Controls.Add(this.linkHomepage);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.okButton);
@@ -246,6 +263,7 @@ namespace WhiteRoom
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -264,5 +282,6 @@ namespace WhiteRoom
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.LinkLabel linkHomepage;
     }
 }

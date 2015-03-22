@@ -67,6 +67,7 @@ namespace WhiteRoom
             this.lblFontColor = new System.Windows.Forms.Label();
             this.tabApplication = new System.Windows.Forms.TabPage();
             this.grpAdvanced = new System.Windows.Forms.GroupBox();
+            this.chkDoubleBuffered = new System.Windows.Forms.CheckBox();
             this.chkRescale = new System.Windows.Forms.CheckBox();
             this.txtCursorBlinkTime = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -82,7 +83,6 @@ namespace WhiteRoom
             this.clrPicker = new System.Windows.Forms.ColorDialog();
             this.fntPicker = new System.Windows.Forms.FontDialog();
             this.imgPicker = new System.Windows.Forms.OpenFileDialog();
-            this.chkDoubleBuffered = new System.Windows.Forms.CheckBox();
             this.tabPreferences.SuspendLayout();
             this.tabEnvironment.SuspendLayout();
             this.grpGeneral.SuspendLayout();
@@ -97,7 +97,7 @@ namespace WhiteRoom
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(305, 460);
+            this.btnOK.Location = new System.Drawing.Point(305, 429);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -112,7 +112,7 @@ namespace WhiteRoom
             this.tabPreferences.Location = new System.Drawing.Point(12, 12);
             this.tabPreferences.Name = "tabPreferences";
             this.tabPreferences.SelectedIndex = 0;
-            this.tabPreferences.Size = new System.Drawing.Size(368, 442);
+            this.tabPreferences.Size = new System.Drawing.Size(368, 411);
             this.tabPreferences.TabIndex = 1;
             // 
             // tabEnvironment
@@ -124,7 +124,7 @@ namespace WhiteRoom
             this.tabEnvironment.Location = new System.Drawing.Point(4, 22);
             this.tabEnvironment.Name = "tabEnvironment";
             this.tabEnvironment.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEnvironment.Size = new System.Drawing.Size(360, 416);
+            this.tabEnvironment.Size = new System.Drawing.Size(360, 385);
             this.tabEnvironment.TabIndex = 0;
             this.tabEnvironment.Text = "Environment";
             this.tabEnvironment.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@ namespace WhiteRoom
             this.grpGeneral.Controls.Add(this.btnBackColor);
             this.grpGeneral.Controls.Add(this.label2);
             this.grpGeneral.Controls.Add(this.label1);
-            this.grpGeneral.Location = new System.Drawing.Point(6, 289);
+            this.grpGeneral.Location = new System.Drawing.Point(6, 274);
             this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(348, 124);
+            this.grpGeneral.Size = new System.Drawing.Size(348, 106);
             this.grpGeneral.TabIndex = 2;
             this.grpGeneral.TabStop = false;
             this.grpGeneral.Text = "General Settings";
@@ -216,12 +216,13 @@ namespace WhiteRoom
             // 
             // trcOpacity
             // 
+            this.trcOpacity.AutoSize = false;
             this.trcOpacity.BackColor = System.Drawing.SystemColors.Window;
             this.trcOpacity.Location = new System.Drawing.Point(70, 70);
             this.trcOpacity.Maximum = 100;
             this.trcOpacity.Minimum = 25;
             this.trcOpacity.Name = "trcOpacity";
-            this.trcOpacity.Size = new System.Drawing.Size(104, 45);
+            this.trcOpacity.Size = new System.Drawing.Size(115, 31);
             this.trcOpacity.TabIndex = 3;
             this.trcOpacity.TickFrequency = 10;
             this.trcOpacity.Value = 50;
@@ -269,16 +270,16 @@ namespace WhiteRoom
             this.grpPage.Controls.Add(this.lblPadding);
             this.grpPage.Controls.Add(this.lblHeight);
             this.grpPage.Controls.Add(this.lblWidth);
-            this.grpPage.Location = new System.Drawing.Point(6, 143);
+            this.grpPage.Location = new System.Drawing.Point(6, 130);
             this.grpPage.Name = "grpPage";
-            this.grpPage.Size = new System.Drawing.Size(348, 140);
+            this.grpPage.Size = new System.Drawing.Size(348, 138);
             this.grpPage.TabIndex = 1;
             this.grpPage.TabStop = false;
             this.grpPage.Text = "Page Settings";
             // 
             // txtPageTopOffset
             // 
-            this.txtPageTopOffset.Location = new System.Drawing.Point(80, 89);
+            this.txtPageTopOffset.Location = new System.Drawing.Point(80, 87);
             this.txtPageTopOffset.Name = "txtPageTopOffset";
             this.txtPageTopOffset.Size = new System.Drawing.Size(102, 20);
             this.txtPageTopOffset.TabIndex = 12;
@@ -287,7 +288,7 @@ namespace WhiteRoom
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 92);
+            this.label4.Location = new System.Drawing.Point(6, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 11;
@@ -296,7 +297,7 @@ namespace WhiteRoom
             // chkPageShowBorder
             // 
             this.chkPageShowBorder.AutoSize = true;
-            this.chkPageShowBorder.Location = new System.Drawing.Point(188, 117);
+            this.chkPageShowBorder.Location = new System.Drawing.Point(188, 115);
             this.chkPageShowBorder.Name = "chkPageShowBorder";
             this.chkPageShowBorder.Size = new System.Drawing.Size(87, 17);
             this.chkPageShowBorder.TabIndex = 10;
@@ -307,7 +308,7 @@ namespace WhiteRoom
             // chkPageHeight
             // 
             this.chkPageHeight.AutoSize = true;
-            this.chkPageHeight.Location = new System.Drawing.Point(188, 47);
+            this.chkPageHeight.Location = new System.Drawing.Point(188, 45);
             this.chkPageHeight.Name = "chkPageHeight";
             this.chkPageHeight.Size = new System.Drawing.Size(48, 17);
             this.chkPageHeight.TabIndex = 9;
@@ -318,7 +319,7 @@ namespace WhiteRoom
             // chkPageWidth
             // 
             this.chkPageWidth.AutoSize = true;
-            this.chkPageWidth.Location = new System.Drawing.Point(188, 25);
+            this.chkPageWidth.Location = new System.Drawing.Point(188, 23);
             this.chkPageWidth.Name = "chkPageWidth";
             this.chkPageWidth.Size = new System.Drawing.Size(48, 17);
             this.chkPageWidth.TabIndex = 8;
@@ -328,7 +329,7 @@ namespace WhiteRoom
             // 
             // txtPageMargin
             // 
-            this.txtPageMargin.Location = new System.Drawing.Point(80, 67);
+            this.txtPageMargin.Location = new System.Drawing.Point(80, 65);
             this.txtPageMargin.Name = "txtPageMargin";
             this.txtPageMargin.Size = new System.Drawing.Size(102, 20);
             this.txtPageMargin.TabIndex = 7;
@@ -336,7 +337,7 @@ namespace WhiteRoom
             // 
             // txtPageHeight
             // 
-            this.txtPageHeight.Location = new System.Drawing.Point(80, 45);
+            this.txtPageHeight.Location = new System.Drawing.Point(80, 43);
             this.txtPageHeight.Name = "txtPageHeight";
             this.txtPageHeight.Size = new System.Drawing.Size(102, 20);
             this.txtPageHeight.TabIndex = 6;
@@ -344,7 +345,7 @@ namespace WhiteRoom
             // 
             // txtPageWidth
             // 
-            this.txtPageWidth.Location = new System.Drawing.Point(80, 23);
+            this.txtPageWidth.Location = new System.Drawing.Point(80, 21);
             this.txtPageWidth.Name = "txtPageWidth";
             this.txtPageWidth.Size = new System.Drawing.Size(102, 20);
             this.txtPageWidth.TabIndex = 5;
@@ -352,7 +353,7 @@ namespace WhiteRoom
             // 
             // btnPageColor
             // 
-            this.btnPageColor.Location = new System.Drawing.Point(80, 115);
+            this.btnPageColor.Location = new System.Drawing.Point(80, 113);
             this.btnPageColor.Name = "btnPageColor";
             this.btnPageColor.Size = new System.Drawing.Size(70, 18);
             this.btnPageColor.TabIndex = 4;
@@ -362,7 +363,7 @@ namespace WhiteRoom
             // lblPageColor
             // 
             this.lblPageColor.AutoSize = true;
-            this.lblPageColor.Location = new System.Drawing.Point(6, 118);
+            this.lblPageColor.Location = new System.Drawing.Point(6, 116);
             this.lblPageColor.Name = "lblPageColor";
             this.lblPageColor.Size = new System.Drawing.Size(34, 13);
             this.lblPageColor.TabIndex = 3;
@@ -371,7 +372,7 @@ namespace WhiteRoom
             // lblPadding
             // 
             this.lblPadding.AutoSize = true;
-            this.lblPadding.Location = new System.Drawing.Point(6, 70);
+            this.lblPadding.Location = new System.Drawing.Point(6, 68);
             this.lblPadding.Name = "lblPadding";
             this.lblPadding.Size = new System.Drawing.Size(42, 13);
             this.lblPadding.TabIndex = 2;
@@ -380,7 +381,7 @@ namespace WhiteRoom
             // lblHeight
             // 
             this.lblHeight.AutoSize = true;
-            this.lblHeight.Location = new System.Drawing.Point(6, 48);
+            this.lblHeight.Location = new System.Drawing.Point(6, 46);
             this.lblHeight.Name = "lblHeight";
             this.lblHeight.Size = new System.Drawing.Size(41, 13);
             this.lblHeight.TabIndex = 1;
@@ -389,7 +390,7 @@ namespace WhiteRoom
             // lblWidth
             // 
             this.lblWidth.AutoSize = true;
-            this.lblWidth.Location = new System.Drawing.Point(6, 26);
+            this.lblWidth.Location = new System.Drawing.Point(6, 24);
             this.lblWidth.Name = "lblWidth";
             this.lblWidth.Size = new System.Drawing.Size(38, 13);
             this.lblWidth.TabIndex = 0;
@@ -407,7 +408,7 @@ namespace WhiteRoom
             this.grpFont.Controls.Add(this.lblFontColor);
             this.grpFont.Location = new System.Drawing.Point(6, 6);
             this.grpFont.Name = "grpFont";
-            this.grpFont.Size = new System.Drawing.Size(348, 131);
+            this.grpFont.Size = new System.Drawing.Size(348, 118);
             this.grpFont.TabIndex = 0;
             this.grpFont.TabStop = false;
             this.grpFont.Text = "Formatting Settings";
@@ -415,7 +416,7 @@ namespace WhiteRoom
             // chkAudoIndent
             // 
             this.chkAudoIndent.AutoSize = true;
-            this.chkAudoIndent.Location = new System.Drawing.Point(9, 99);
+            this.chkAudoIndent.Location = new System.Drawing.Point(9, 95);
             this.chkAudoIndent.Name = "chkAudoIndent";
             this.chkAudoIndent.Size = new System.Drawing.Size(81, 17);
             this.chkAudoIndent.TabIndex = 16;
@@ -426,7 +427,7 @@ namespace WhiteRoom
             // chkTabToSpaces
             // 
             this.chkTabToSpaces.AutoSize = true;
-            this.chkTabToSpaces.Location = new System.Drawing.Point(9, 76);
+            this.chkTabToSpaces.Location = new System.Drawing.Point(9, 72);
             this.chkTabToSpaces.Name = "chkTabToSpaces";
             this.chkTabToSpaces.Size = new System.Drawing.Size(141, 17);
             this.chkTabToSpaces.TabIndex = 15;
@@ -436,7 +437,7 @@ namespace WhiteRoom
             // 
             // txtTabstoSpaces
             // 
-            this.txtTabstoSpaces.Location = new System.Drawing.Point(156, 74);
+            this.txtTabstoSpaces.Location = new System.Drawing.Point(156, 70);
             this.txtTabstoSpaces.Name = "txtTabstoSpaces";
             this.txtTabstoSpaces.Size = new System.Drawing.Size(35, 20);
             this.txtTabstoSpaces.TabIndex = 14;
@@ -444,7 +445,7 @@ namespace WhiteRoom
             // 
             // btnFont
             // 
-            this.btnFont.Location = new System.Drawing.Point(295, 49);
+            this.btnFont.Location = new System.Drawing.Point(295, 45);
             this.btnFont.Name = "btnFont";
             this.btnFont.Size = new System.Drawing.Size(26, 20);
             this.btnFont.TabIndex = 4;
@@ -456,7 +457,7 @@ namespace WhiteRoom
             // 
             this.txtFont.BackColor = System.Drawing.SystemColors.Control;
             this.txtFont.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFont.Location = new System.Drawing.Point(80, 53);
+            this.txtFont.Location = new System.Drawing.Point(80, 49);
             this.txtFont.Name = "txtFont";
             this.txtFont.Size = new System.Drawing.Size(209, 13);
             this.txtFont.TabIndex = 3;
@@ -464,7 +465,7 @@ namespace WhiteRoom
             // lblFont
             // 
             this.lblFont.AutoSize = true;
-            this.lblFont.Location = new System.Drawing.Point(6, 53);
+            this.lblFont.Location = new System.Drawing.Point(6, 49);
             this.lblFont.Name = "lblFont";
             this.lblFont.Size = new System.Drawing.Size(31, 13);
             this.lblFont.TabIndex = 2;
@@ -472,7 +473,7 @@ namespace WhiteRoom
             // 
             // btnFontColor
             // 
-            this.btnFontColor.Location = new System.Drawing.Point(80, 23);
+            this.btnFontColor.Location = new System.Drawing.Point(80, 19);
             this.btnFontColor.Name = "btnFontColor";
             this.btnFontColor.Size = new System.Drawing.Size(70, 18);
             this.btnFontColor.TabIndex = 1;
@@ -482,7 +483,7 @@ namespace WhiteRoom
             // lblFontColor
             // 
             this.lblFontColor.AutoSize = true;
-            this.lblFontColor.Location = new System.Drawing.Point(6, 26);
+            this.lblFontColor.Location = new System.Drawing.Point(6, 22);
             this.lblFontColor.Name = "lblFontColor";
             this.lblFontColor.Size = new System.Drawing.Size(58, 13);
             this.lblFontColor.TabIndex = 0;
@@ -496,7 +497,7 @@ namespace WhiteRoom
             this.tabApplication.Location = new System.Drawing.Point(4, 22);
             this.tabApplication.Name = "tabApplication";
             this.tabApplication.Padding = new System.Windows.Forms.Padding(3);
-            this.tabApplication.Size = new System.Drawing.Size(360, 416);
+            this.tabApplication.Size = new System.Drawing.Size(360, 385);
             this.tabApplication.TabIndex = 1;
             this.tabApplication.Text = "Application";
             this.tabApplication.UseVisualStyleBackColor = true;
@@ -509,12 +510,23 @@ namespace WhiteRoom
             this.grpAdvanced.Controls.Add(this.label3);
             this.grpAdvanced.Controls.Add(this.chkLocalCacheFile);
             this.grpAdvanced.Controls.Add(this.chkContextMenu);
-            this.grpAdvanced.Location = new System.Drawing.Point(6, 194);
+            this.grpAdvanced.Location = new System.Drawing.Point(6, 180);
             this.grpAdvanced.Name = "grpAdvanced";
-            this.grpAdvanced.Size = new System.Drawing.Size(348, 142);
+            this.grpAdvanced.Size = new System.Drawing.Size(348, 140);
             this.grpAdvanced.TabIndex = 1;
             this.grpAdvanced.TabStop = false;
             this.grpAdvanced.Text = "Advanced Settings";
+            // 
+            // chkDoubleBuffered
+            // 
+            this.chkDoubleBuffered.AutoSize = true;
+            this.chkDoubleBuffered.Location = new System.Drawing.Point(13, 42);
+            this.chkDoubleBuffered.Name = "chkDoubleBuffered";
+            this.chkDoubleBuffered.Size = new System.Drawing.Size(310, 17);
+            this.chkDoubleBuffered.TabIndex = 11;
+            this.chkDoubleBuffered.Text = "2x buffered window (Better performance, uses more memory)";
+            this.chkDoubleBuffered.UseVisualStyleBackColor = true;
+            this.chkDoubleBuffered.CheckedChanged += new System.EventHandler(this.chkDoubleBuffered_CheckedChanged);
             // 
             // chkRescale
             // 
@@ -573,7 +585,7 @@ namespace WhiteRoom
             this.grpFile.Controls.Add(this.chkAutosave);
             this.grpFile.Location = new System.Drawing.Point(6, 6);
             this.grpFile.Name = "grpFile";
-            this.grpFile.Size = new System.Drawing.Size(348, 182);
+            this.grpFile.Size = new System.Drawing.Size(348, 168);
             this.grpFile.TabIndex = 0;
             this.grpFile.TabStop = false;
             this.grpFile.Text = "File Settings";
@@ -629,7 +641,7 @@ namespace WhiteRoom
             // chkLaunchFullscreen
             // 
             this.chkLaunchFullscreen.AutoSize = true;
-            this.chkLaunchFullscreen.Location = new System.Drawing.Point(13, 152);
+            this.chkLaunchFullscreen.Location = new System.Drawing.Point(13, 143);
             this.chkLaunchFullscreen.Name = "chkLaunchFullscreen";
             this.chkLaunchFullscreen.Size = new System.Drawing.Size(124, 17);
             this.chkLaunchFullscreen.TabIndex = 1;
@@ -640,7 +652,7 @@ namespace WhiteRoom
             // chkAutosave
             // 
             this.chkAutosave.AutoSize = true;
-            this.chkAutosave.Location = new System.Drawing.Point(13, 129);
+            this.chkAutosave.Location = new System.Drawing.Point(13, 120);
             this.chkAutosave.Name = "chkAutosave";
             this.chkAutosave.Size = new System.Drawing.Size(71, 17);
             this.chkAutosave.TabIndex = 0;
@@ -653,23 +665,12 @@ namespace WhiteRoom
             this.imgPicker.DefaultExt = "*.png";
             this.imgPicker.Filter = "Images|*.png;*.jpg;*.gif;*.bmp;*.jpeg|All files|*.*";
             // 
-            // chkDoubleBuffered
-            // 
-            this.chkDoubleBuffered.AutoSize = true;
-            this.chkDoubleBuffered.Location = new System.Drawing.Point(13, 42);
-            this.chkDoubleBuffered.Name = "chkDoubleBuffered";
-            this.chkDoubleBuffered.Size = new System.Drawing.Size(310, 17);
-            this.chkDoubleBuffered.TabIndex = 11;
-            this.chkDoubleBuffered.Text = "2x buffered window (Better performance, uses more memory)";
-            this.chkDoubleBuffered.UseVisualStyleBackColor = true;
-            this.chkDoubleBuffered.CheckedChanged += new System.EventHandler(this.chkDoubleBuffered_CheckedChanged);
-            // 
             // frmPreferences
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 490);
+            this.ClientSize = new System.Drawing.Size(392, 459);
             this.Controls.Add(this.tabPreferences);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
