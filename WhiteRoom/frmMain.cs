@@ -979,7 +979,13 @@ namespace WhiteRoom
 
                 OpenFile(files[0]);
 
-                e.Data.SetData(null);
+                try
+                {
+                    e.Data.SetData(null);
+                }
+                catch { 
+                    /* Do nothing */
+                }
             }
         }
 
