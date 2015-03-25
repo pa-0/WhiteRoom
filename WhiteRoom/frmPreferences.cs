@@ -58,7 +58,7 @@ namespace WhiteRoom
                 }
                 catch (UnauthorizedAccessException e)
                 {
-                    MessageBox.Show("Config Cache Error: " + e.Message);
+                    MessageBox.Show("Config Cache Error: " + e.Message, "WhiteRoom - Error: Config Cache", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return; //ignore cache, if failed
                 }
                 if (!File.Exists(CacheFile))
@@ -104,11 +104,11 @@ namespace WhiteRoom
 
             try
             {
-                doc.Save(Application.StartupPath + "\\WhiteRoom.exe.config");
+                doc.Save(CacheFile);
             }
             catch (UnauthorizedAccessException e)
             {
-                MessageBox.Show("Config Cache Error: " + e.Message);
+                MessageBox.Show("Config Cache Error: " + e.Message, "WhiteRoom - Error: Config Cache", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -247,7 +247,7 @@ namespace WhiteRoom
             }
             else
             {
-                MessageBox.Show("Invalid Page Width. You may only use numeric characters.");
+                MessageBox.Show("Invalid Page Width. You may only use numeric characters.","WhiteRoom - Error: Invalid Page Width",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
 
@@ -273,7 +273,7 @@ namespace WhiteRoom
             }
             else
             {
-                MessageBox.Show("Invalid Page Height. You may only use numeric characters.");
+                MessageBox.Show("Invalid Page Height. You may only use numeric characters.","WhiteRoom - Error: Invalid Page Height",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
 
@@ -298,7 +298,7 @@ namespace WhiteRoom
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Page Margin. You may only use numeric characters totalling less than 100.");
+                    MessageBox.Show("Invalid Page Margin. You may only use numeric characters totalling less than 100.", "WhiteRoom - Error: Invalid Page Margin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -473,7 +473,7 @@ namespace WhiteRoom
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Page Margin. You may only use numeric characters totalling less than 100.");
+                    MessageBox.Show("Invalid Page Margin. You may only use numeric characters totalling less than 100.", "WhiteRoom - Error: Invalid Page Margin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -533,7 +533,7 @@ namespace WhiteRoom
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Page Top offset. You may only use numeric characters totalling 100 or less.");
+                    MessageBox.Show("Invalid Page Top offset. You may only use numeric characters totalling 100 or less.", "WhiteRoom - Error: Invalid Page Top Offset", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

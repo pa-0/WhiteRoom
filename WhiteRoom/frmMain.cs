@@ -85,9 +85,9 @@ namespace WhiteRoom
                     Clipboard.SetDataObject(Clipboard.GetDataObject().GetData(DataFormats.UnicodeText));
                 }
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("An error occurred while cutting text.");
+                MessageBox.Show("An error occurred while cutting text: " + e.Message, "WhiteRoom - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -101,9 +101,9 @@ namespace WhiteRoom
                     Clipboard.SetDataObject(Clipboard.GetDataObject().GetData(DataFormats.UnicodeText));
                 }
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("An error occurred while copying text.");
+                MessageBox.Show("An error occurred while copying text: " + e.Message, "WhiteRoom - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -118,9 +118,9 @@ namespace WhiteRoom
 
                 txtPage.SelectedText = Clipboard.GetDataObject().GetData(DataFormats.UnicodeText).ToString();
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("An error occurred while pasting content.");
+                MessageBox.Show("An error occurred while pasting content: " + e.Message, "WhiteRoom - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
  
             //txtPage.Paste(); //(DataFormats.GetFormat(DataFormats.UnicodeText));
@@ -162,7 +162,7 @@ namespace WhiteRoom
             pos = txtPage.Find(SearchString, txtPage.SelectionStart + txtPage.SelectionLength, FindOptions);
             if (pos == -1 & txtPage.SelectionStart > 0)
             {
-                if (MessageBox.Show("You have reached the end of the document, start search at the beginning of the document?", "End of Document", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("You have reached the end of the document, start search at the beginning of the document?", "WriteRoom - Find: End of Document", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     txtPage.SelectionStart = 0;
                     Find();
@@ -170,7 +170,7 @@ namespace WhiteRoom
             }
             else if (pos == -1)
             {
-                MessageBox.Show("Search string not found.");
+                MessageBox.Show("Search string not found.","WriteRoom - Search");
             }
             else
             {
@@ -268,7 +268,7 @@ namespace WhiteRoom
 
         private DialogResult ConfirmOverwrite()
         {
-            return MessageBox.Show("Your document has changed since the last save. If you do not save now, all progress will be lost. \n\nWould you like to save?", "Warning", MessageBoxButtons.YesNoCancel);
+            return MessageBox.Show("Your document has changed since the last save. If you do not save now, all progress will be lost. \n\nWould you like to save?", "WriteRoom - Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
         }
 
         #endregion
@@ -442,7 +442,7 @@ namespace WhiteRoom
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An error occured when opening the file: " + ex.Message,"WriteRoom - Error: Open File", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -635,7 +635,7 @@ namespace WhiteRoom
             DialogResult UserResponse = new DialogResult();
             if (txtPage.Modified)
             {
-                UserResponse = MessageBox.Show("Your document has changed since the last save. \n\n Would you like to save?", "Warning", MessageBoxButtons.YesNoCancel);
+                UserResponse = MessageBox.Show("Your document has changed since the last save. \n\n Would you like to save?", "WriteRoom - Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             }
             if (txtPage.Modified & UserResponse == DialogResult.Cancel)
             {
@@ -723,7 +723,7 @@ namespace WhiteRoom
             }
             else
             {
-                MessageBox.Show("No printers were detected on this machine.", "No Printer", MessageBoxButtons.OK);
+                MessageBox.Show("No printers were detected on this machine.", "WriteRoom - Error: No Printer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -743,7 +743,7 @@ namespace WhiteRoom
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Print Error");
+                    MessageBox.Show(ex.Message, "WriteRoom - Print Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -791,7 +791,7 @@ namespace WhiteRoom
             DialogResult UserResponse = new DialogResult();
             if (txtPage.Modified)
             {
-                UserResponse = MessageBox.Show("Would you like to clear the contents of your documents? This action cannot be undone.", "Warning", MessageBoxButtons.YesNoCancel);
+                UserResponse = MessageBox.Show("Would you like to clear the contents of your documents? This action cannot be undone.", "WriteRoom - Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             }
             if (txtPage.Modified & UserResponse == DialogResult.Cancel)
             {
@@ -1099,11 +1099,11 @@ namespace WhiteRoom
             {
                 if (latest == System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString())
                 {
-                    MessageBox.Show("Your version of WhiteRoom is up to date.", "Update", MessageBoxButtons.OK);
+                    MessageBox.Show("Your version of WhiteRoom is up to date.", "WriteRoom - Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    DialogResult response = MessageBox.Show("A new version (" + latest + ") of WhiteRoom is available.\n\nWould you like to download it?", "New Version Available", MessageBoxButtons.YesNo);
+                    DialogResult response = MessageBox.Show("A new version (" + latest + ") of WhiteRoom is available.\n\nWould you like to download it?", "WhiteRoom New Version Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (response == DialogResult.Yes)
                     {
                         System.Diagnostics.Process.Start(Properties.Settings.Default.WhiteRoomURL);
