@@ -308,6 +308,9 @@ namespace WhiteRoom
             btnLineDown.ForeColor = Properties.Settings.Default.ForegroundColor;
             btnPageDown.ForeColor = Properties.Settings.Default.ForegroundColor;
 
+            //mnuMenuStrip.ForeColor = Properties.Settings.Default.ForegroundColor;
+            //mnuMenuStrip.BackColor = Properties.Settings.Default.PageColor;
+
             txtPage.TabsToSpaces = Properties.Settings.Default.TabToSpaces;
             txtPage.AutoIndent = Properties.Settings.Default.AutoIndent;
 

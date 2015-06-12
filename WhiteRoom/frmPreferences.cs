@@ -23,6 +23,9 @@ using System.Configuration;
 using System.Xml;
 using Microsoft.Win32;
 
+using System.Text.RegularExpressions;
+using Ini;
+
 namespace WhiteRoom
 {
     public partial class frmPreferences : Form
@@ -543,6 +546,91 @@ namespace WhiteRoom
             Properties.Settings.Default.DoubleBuffered = chkDoubleBuffered.Checked;
             Properties.Settings.Default.Save();
             parent.Sync();
+        }
+
+        private void btnImportTheme_Click(object sender, EventArgs e)
+        {
+            btnImportTheme.Enabled = false;
+            if (openThemeDlg.ShowDialog() != DialogResult.Cancel)
+            {
+                string fPath = openThemeDlg.FileName.Trim();
+                IniFile themeFile = new IniFile(fPath);
+                var Appcfg = Properties.Settings.Default;
+
+                // Import settings from the ini file
+                string iFont = themeFile.IniReadValue("Environment", "Font");
+                    string[] sFont = iFont.Split(',');
+                    string fontStmp = (Regex.Match(sFont[1], @"[\d\.]+").Value).Trim().Replace('.',',');
+                    float fontSInt = (float)Convert.ToDouble(fontStmp);
+                    string fontSUnit = (Regex.Match(sFont[1],@"[^\d\.]+").Value).Trim().ToUpper();
+                    GraphicsUnit FontUnit;
+                    if (fontSUnit.Contains("PX") || fontSUnit.Contains("PIXEL"))
+                        FontUnit = GraphicsUnit.Pixel;
+                    else
+                        FontUnit = GraphicsUnit.Point;
+                    Appcfg.Font = new Font(sFont[0].Trim(),fontSInt,FontUnit);
+                string pColor = themeFile.IniReadValue("Environment", "PageColor");
+                    string[] pC = pColor.Split(',');
+                    Appcfg.PageColor = Color.FromArgb(255, int.Parse(pC[0]), int.Parse(pC[1]), int.Parse(pC[2]));
+                string fColor = themeFile.IniReadValue("Environment", "ForegroundColor");
+                    string[] fC = fColor.Split(',');
+                    Appcfg.ForegroundColor = Color.FromArgb(255, int.Parse(fC[0]), int.Parse(fC[1]), int.Parse(fC[2]));
+                string bColor = themeFile.IniReadValue("Environment", "BackgroundColor");
+                    string[] bC = bColor.Split(',');
+                    Appcfg.BackgroundColor = Color.FromArgb(255, int.Parse(bC[0]), int.Parse(bC[1]), int.Parse(bC[2]));
+                /*
+                Appcfg.PageWidth = int.Parse(themeFile.IniReadValue("Environment", "PageWidth"));
+                Appcfg.PageHeight = int.Parse(themeFile.IniReadValue("Environment", "PageHeight"));
+                Appcfg.PagePadding = int.Parse(themeFile.IniReadValue("Environment", "PagePadding"));
+                Appcfg.PageTopOffset = int.Parse(themeFile.IniReadValue("Environment", "PageTopOffset"));
+                */
+                Appcfg.BackImageEnable = Boolean.Parse(themeFile.IniReadValue("Environment", "BackImageEnable"));
+                if (Appcfg.BackImageEnable)
+                    Appcfg.BackImage = themeFile.IniReadValue("Environment", "BackImage");
+                Appcfg.Opacity = int.Parse(themeFile.IniReadValue("Environment", "Opacity"));
+
+                //save and sync
+                Appcfg.Save();
+                parent.Sync();
+
+                //Notify user
+                MessageBox.Show("Theme settings were successfully imported from:\n" + themeFile.path, "WhiteRoom - Theme settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            btnImportTheme.Enabled = true;
+        }
+
+        private void btnExportTheme_Click(object sender, EventArgs e)
+        {
+            btnExportTheme.Enabled = false;
+            if (saveThemeDlg.ShowDialog() != DialogResult.Cancel)
+            {
+                string fPath = saveThemeDlg.FileName.Trim();
+                IniFile themeFile = new IniFile(fPath);
+                var Appcfg = Properties.Settings.Default;
+
+                // Export current settings to the ini file
+                themeFile.IniWriteValue("Environment", "Font", Appcfg.Font.Name.ToString() +", "+ Appcfg.Font.SizeInPoints.ToString().Replace(',','.') +"pt");
+                var pColor = Appcfg.PageColor;
+                    themeFile.IniWriteValue("Environment", "PageColor", pColor.R.ToString() + ", " + pColor.G.ToString() + ", " + pColor.B.ToString());
+                var fgColor = Appcfg.ForegroundColor;
+                    themeFile.IniWriteValue("Environment", "ForegroundColor", fgColor.R.ToString() + ", " + fgColor.G.ToString() + ", " + fgColor.B.ToString());
+                var bgColor = Appcfg.BackgroundColor;
+                    themeFile.IniWriteValue("Environment", "BackgroundColor", bgColor.R.ToString() + ", " + bgColor.G.ToString() + ", " + bgColor.B.ToString());
+                /*
+                themeFile.IniWriteValue("Environment", "PageWidth", Appcfg.PageWidth.ToString());
+                themeFile.IniWriteValue("Environment", "PageHeight", Appcfg.PageHeight.ToString());
+                themeFile.IniWriteValue("Environment", "PagePadding", Appcfg.PagePadding.ToString());
+                themeFile.IniWriteValue("Environment", "PageTopOffset", Appcfg.PageTopOffset.ToString());
+                */
+                themeFile.IniWriteValue("Environment", "BackImageEnable", Appcfg.BackImageEnable.ToString());
+                if (Appcfg.BackImageEnable)
+                    themeFile.IniWriteValue("Environment", "BackImage", Appcfg.BackImage.ToString());
+                themeFile.IniWriteValue("Environment", "Opacity", Appcfg.Opacity.ToString());
+                
+                //Notify user
+                MessageBox.Show("Theme settings were successfully exported to:\n" + themeFile.path, "WhiteRoom - Theme settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            btnExportTheme.Enabled = true;
         }
     }
 }

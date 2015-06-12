@@ -83,6 +83,10 @@ namespace WhiteRoom
             this.clrPicker = new System.Windows.Forms.ColorDialog();
             this.fntPicker = new System.Windows.Forms.FontDialog();
             this.imgPicker = new System.Windows.Forms.OpenFileDialog();
+            this.btnImportTheme = new System.Windows.Forms.Button();
+            this.btnExportTheme = new System.Windows.Forms.Button();
+            this.saveThemeDlg = new System.Windows.Forms.SaveFileDialog();
+            this.openThemeDlg = new System.Windows.Forms.OpenFileDialog();
             this.tabPreferences.SuspendLayout();
             this.tabEnvironment.SuspendLayout();
             this.grpGeneral.SuspendLayout();
@@ -665,12 +669,44 @@ namespace WhiteRoom
             this.imgPicker.DefaultExt = "*.png";
             this.imgPicker.Filter = "Images|*.png;*.jpg;*.gif;*.bmp;*.jpeg|All files|*.*";
             // 
+            // btnImportTheme
+            // 
+            this.btnImportTheme.Location = new System.Drawing.Point(12, 428);
+            this.btnImportTheme.Name = "btnImportTheme";
+            this.btnImportTheme.Size = new System.Drawing.Size(100, 23);
+            this.btnImportTheme.TabIndex = 2;
+            this.btnImportTheme.Text = "Import theme";
+            this.btnImportTheme.UseVisualStyleBackColor = true;
+            this.btnImportTheme.Click += new System.EventHandler(this.btnImportTheme_Click);
+            // 
+            // btnExportTheme
+            // 
+            this.btnExportTheme.Location = new System.Drawing.Point(118, 428);
+            this.btnExportTheme.Name = "btnExportTheme";
+            this.btnExportTheme.Size = new System.Drawing.Size(100, 23);
+            this.btnExportTheme.TabIndex = 3;
+            this.btnExportTheme.Text = "Export theme";
+            this.btnExportTheme.UseVisualStyleBackColor = true;
+            this.btnExportTheme.Click += new System.EventHandler(this.btnExportTheme_Click);
+            // 
+            // saveThemeDlg
+            // 
+            this.saveThemeDlg.DefaultExt = "*.ini";
+            this.saveThemeDlg.Filter = "Ini files|*.ini;*.cfg|All files|*.*";
+            // 
+            // openThemeDlg
+            // 
+            this.openThemeDlg.DefaultExt = "*.ini";
+            this.openThemeDlg.Filter = "Ini files|*.ini;*.cfg|All files|*.*";
+            // 
             // frmPreferences
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 459);
+            this.Controls.Add(this.btnExportTheme);
+            this.Controls.Add(this.btnImportTheme);
             this.Controls.Add(this.tabPreferences);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -754,5 +790,9 @@ namespace WhiteRoom
         private System.Windows.Forms.TextBox txtPageTopOffset;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkDoubleBuffered;
+        private System.Windows.Forms.Button btnImportTheme;
+        private System.Windows.Forms.Button btnExportTheme;
+        private System.Windows.Forms.SaveFileDialog saveThemeDlg;
+        private System.Windows.Forms.OpenFileDialog openThemeDlg;
     }
 }
