@@ -586,12 +586,37 @@ namespace WhiteRoom
                 */
                 Appcfg.BackImageEnable = Boolean.Parse(themeFile.IniReadValue("Environment", "BackImageEnable"));
                 if (Appcfg.BackImageEnable)
-                    Appcfg.BackImage = themeFile.IniReadValue("Environment", "BackImage");
+                {
+                    string AppPatternsDir = Path.GetFullPath(Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)).ToLower() + "\\patterns";
+                    string PseudoPath = themeFile.IniReadValue("Environment", "BackImage").Trim();
+                    if (PseudoPath.IndexOf("$PATTERNS:") == 0 && PseudoPath.Contains("$PATTERNS:"))
+                        PseudoPath = PseudoPath.Replace("$PATTERNS:", AppPatternsDir + "\\");
+                    Appcfg.BackImage = PseudoPath;
+                    if (!File.Exists(PseudoPath))
+                    {
+                        MessageBox.Show("Error loading the following background image:\n"+PseudoPath, "WhiteRoom - Theme settings", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
                 Appcfg.Opacity = int.Parse(themeFile.IniReadValue("Environment", "Opacity"));
 
                 //save and sync
                 Appcfg.Save();
                 parent.Sync();
+
+                //Make preferences window aware of the new changes
+                    //font
+                    this.txtFont.Text = fntPicker.Font.Name + ", " + Math.Round(fntPicker.Font.SizeInPoints) + "pt";
+                    //pColor
+                    this.btnPageColor.BackColor = Appcfg.PageColor;
+                    //fColor
+                    this.btnFontColor.BackColor = Appcfg.ForegroundColor;
+                    //bColor
+                    this.btnBackColor.BackColor = Appcfg.BackgroundColor;
+                    //BackImageEnable
+                    this.chkBackImage.Checked = Appcfg.BackImageEnable;
+                    //BackImage
+                    if (Appcfg.BackImageEnable)
+                        this.btnBackImage.Text = Appcfg.BackImage;
 
                 //Notify user
                 MessageBox.Show("Theme settings were successfully imported from:\n" + themeFile.path, "WhiteRoom - Theme settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -624,9 +649,16 @@ namespace WhiteRoom
                 */
                 themeFile.IniWriteValue("Environment", "BackImageEnable", Appcfg.BackImageEnable.ToString());
                 if (Appcfg.BackImageEnable)
-                    themeFile.IniWriteValue("Environment", "BackImage", Appcfg.BackImage.ToString());
+                {
+                    string bgImgPath = Path.GetFullPath(Appcfg.BackImage.ToString()).ToLower();
+                    string AppPatternsDir = Path.GetFullPath(Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)).ToLower() + "\\patterns";
+                    string PseudoPath = bgImgPath;
+                    if (bgImgPath.Contains(AppPatternsDir))
+                        PseudoPath = bgImgPath.Replace(AppPatternsDir, "$PATTERNS:");
+                    themeFile.IniWriteValue("Environment", "BackImage", PseudoPath);
+                }
                 themeFile.IniWriteValue("Environment", "Opacity", Appcfg.Opacity.ToString());
-                
+
                 //Notify user
                 MessageBox.Show("Theme settings were successfully exported to:\n" + themeFile.path, "WhiteRoom - Theme settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
