@@ -402,6 +402,7 @@ namespace WhiteRoom
             txtPage.Width = pnlPage.Width - (Properties.Settings.Default.PagePadding * 2);
             txtPage.Top = Properties.Settings.Default.PagePadding;
             txtPage.Left = Properties.Settings.Default.PagePadding;
+            //change the '2' for a '1' in order to remove the bottom margin
             txtPage.Height = pnlPage.Height - (Properties.Settings.Default.PagePadding * 2);
             pnlNav.Top = pnlPage.Top;
             pnlNav.Left = pnlPage.Left + pnlPage.Width;

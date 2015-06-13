@@ -453,7 +453,8 @@ namespace WhiteRoom
             this.txtPage.AcceptsTab = true;
             this.txtPage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPage.ContextMenuStrip = this.contextMenuPage;
-            this.txtPage.EnableAutoDragDrop = true;
+            this.txtPage.EnableAutoDragDrop = false;
+            this.txtPage.AllowDrop = true;
             this.txtPage.Location = new System.Drawing.Point(10, 10);
             this.txtPage.Name = "txtPage";
             this.txtPage.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
