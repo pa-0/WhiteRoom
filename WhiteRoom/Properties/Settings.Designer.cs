@@ -262,7 +262,7 @@ namespace WhiteRoom.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://jjafuller.com/apps/dark_room/version.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/joedf/WhiteRoom/raw/master/VERSION")]
         public string UpdateURL {
             get {
                 return ((string)(this["UpdateURL"]));
