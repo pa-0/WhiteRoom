@@ -149,6 +149,11 @@ namespace WhiteRoom
             return statistic;
         }
 
+        public string StatsText()
+        {
+            return Statistics(0).ToString() + " words | " + DateTime.Now.ToShortTimeString().ToString();
+        }
+
         public void Find(string pSearchString, RichTextBoxFinds pFindOptions)
         {
             SearchString = pSearchString;
@@ -885,6 +890,8 @@ namespace WhiteRoom
             {
                 SaveFile();
             }
+
+            //lblStats.Text = StatsText();
         }
 
         private void txtPage_KeyDown(object sender, KeyEventArgs e)
@@ -919,6 +926,7 @@ namespace WhiteRoom
         private void txtPage_TextChanged(object sender, EventArgs e)
         {
             UpdateEditMenu();
+            //lblStats.Text = StatsText();
         }
 
         private void txtPage_GotFocus(object sender, EventArgs e)

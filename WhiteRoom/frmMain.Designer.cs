@@ -85,6 +85,7 @@ namespace WhiteRoom
             this.preferencesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.toggleFullscreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblStats = new System.Windows.Forms.Label();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnPageDown = new System.Windows.Forms.Button();
             this.btnLineDown = new System.Windows.Forms.Button();
@@ -451,10 +452,9 @@ namespace WhiteRoom
             // txtPage
             // 
             this.txtPage.AcceptsTab = true;
+            this.txtPage.AllowDrop = true;
             this.txtPage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPage.ContextMenuStrip = this.contextMenuPage;
-            this.txtPage.EnableAutoDragDrop = false;
-            this.txtPage.AllowDrop = true;
             this.txtPage.Location = new System.Drawing.Point(10, 10);
             this.txtPage.Name = "txtPage";
             this.txtPage.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -571,6 +571,18 @@ namespace WhiteRoom
             this.toggleFullscreenToolStripMenuItem.Text = "Toggle Fullscreen";
             this.toggleFullscreenToolStripMenuItem.Click += new System.EventHandler(this.fullscreenToolStripMenuItem_Click);
             // 
+            // lblStats
+            // 
+            this.lblStats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStats.BackColor = System.Drawing.Color.Transparent;
+            this.lblStats.Location = new System.Drawing.Point(423, 9);
+            this.lblStats.Name = "lblStats";
+            this.lblStats.Size = new System.Drawing.Size(128, 13);
+            this.lblStats.TabIndex = 3;
+            this.lblStats.Text = "Word Count";
+            this.lblStats.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblStats.Visible = false;
+            // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.Silver;
@@ -668,6 +680,7 @@ namespace WhiteRoom
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(576, 471);
+            this.Controls.Add(this.lblStats);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.pnlPage);
             this.Controls.Add(this.mnuMenuStrip);
@@ -759,5 +772,6 @@ namespace WhiteRoom
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuMainIcon;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripMenuItem toggleFullscreenToolStripMenuItem;
+        private System.Windows.Forms.Label lblStats;
     }
 }
