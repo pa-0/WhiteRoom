@@ -15,7 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
-using System.Xml;
+//using System.Xml;
+using System.Net;
 using System.Windows.Forms;
 
 namespace WhiteRoom
@@ -121,6 +122,7 @@ namespace WhiteRoom
 
             try
             {
+                /*
                 XmlTextReader reader = new XmlTextReader(URLString);
 
                 while (reader.Read())
@@ -136,6 +138,9 @@ namespace WhiteRoom
                             break;
                     }
                 }
+                */
+
+                latest = new WebClient().DownloadString(URLString).Trim();
             }
             catch (Exception e)
             {
