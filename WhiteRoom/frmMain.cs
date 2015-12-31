@@ -319,6 +319,11 @@ namespace WhiteRoom
             txtPage.TabsToSpaces = Properties.Settings.Default.TabToSpaces;
             txtPage.AutoIndent = Properties.Settings.Default.AutoIndent;
 
+            ScrollWin9xProgressBar.ForeColor = Properties.Settings.Default.ForegroundColor;
+            ScrollWin9xProgressBar.BackColor = Properties.Settings.Default.PageColor;
+            
+            updateScrollPercent();
+
             if (Properties.Settings.Default.MultipleMonitors)
             {
                 HandleAdditionalScreens((this.WindowState == FormWindowState.Normal) ? 0 : 1);
@@ -411,6 +416,8 @@ namespace WhiteRoom
             txtPage.Height = pnlPage.Height - (Properties.Settings.Default.PagePadding * 2);
             pnlNav.Top = pnlPage.Top;
             pnlNav.Left = pnlPage.Left + pnlPage.Width;
+
+            updateScrollPercent();
         }
 
         #endregion
@@ -890,7 +897,6 @@ namespace WhiteRoom
             {
                 SaveFile();
             }
-
             //lblStats.Text = StatsText();
         }
 
@@ -926,6 +932,7 @@ namespace WhiteRoom
         private void txtPage_TextChanged(object sender, EventArgs e)
         {
             UpdateEditMenu();
+            updateScrollPercent();
             //lblStats.Text = StatsText();
         }
 
@@ -1005,6 +1012,7 @@ namespace WhiteRoom
         {
             ScrollAction = (int) Eclectic.ScrollBarActions.SB_PAGEUP;
             Eclectic.SendMessage(txtPage.Handle, Eclectic.WM_VSCROLL, (int) Eclectic.ScrollBarActions.SB_PAGEUP, 0);
+            txtPage.Focus();
         }
 
         private void btnLineUp_MouseDown(object sender, MouseEventArgs e)
@@ -1057,6 +1065,29 @@ namespace WhiteRoom
                     Eclectic.SendMessage(txtPage.Handle, Eclectic.WM_VSCROLL, (int)Eclectic.ScrollBarActions.SB_PAGEUP, 0);
                     break;
             }
+        }
+
+        private void txtPage_PageScrolled(object sender, EventArgs e)
+        {
+            updateScrollPercent();
+        }
+
+        public void updateScrollPercent() {
+            int a = txtPage.getScrollYPos();
+            //int b = txtPage.getScrollYPosMax();
+            int b = txtPage.getVScrollMax();
+            int p = 0;
+            if (b > 0) {
+                //p = (int)Math.Floor(((double)a / (double)b) * 100.0);
+                p = (int)Math.Round(((double)a / (double)b) * 100.0);
+            }
+            if (a > b)
+                p = 100;
+
+            ScrollWin9xProgressBar.Value = p;
+
+            //scrollpercentLbl.Text = a.ToString() + " | " + b.ToString();
+            //scrollpercentLbl.Text = p.ToString() + "%";
         }
 
         private void prtDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

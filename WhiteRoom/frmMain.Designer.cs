@@ -71,6 +71,7 @@ namespace WhiteRoom
             this.toolStripMenuMainIcon = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrAutosave = new System.Windows.Forms.Timer(this.components);
             this.pnlPage = new System.Windows.Forms.Panel();
+            this.ScrollWin9xProgressBar = new WhiteRoom.Win9xProgressBar();
             this.txtPage = new WhiteRoom.DarkTextBox(this.components);
             this.contextMenuPage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,6 +98,7 @@ namespace WhiteRoom
             this.dlgPageSetup = new System.Windows.Forms.PageSetupDialog();
             this.dlgPrint = new System.Windows.Forms.PrintDialog();
             this.prtDoc = new System.Drawing.Printing.PrintDocument();
+            this.scrollpercentLbl = new System.Windows.Forms.Label();
             this.mnuMenuStrip.SuspendLayout();
             this.pnlPage.SuspendLayout();
             this.contextMenuPage.SuspendLayout();
@@ -442,6 +444,7 @@ namespace WhiteRoom
             // 
             this.pnlPage.BackColor = System.Drawing.Color.Gray;
             this.pnlPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPage.Controls.Add(this.ScrollWin9xProgressBar);
             this.pnlPage.Controls.Add(this.txtPage);
             this.pnlPage.Location = new System.Drawing.Point(0, 24);
             this.pnlPage.Margin = new System.Windows.Forms.Padding(0);
@@ -449,19 +452,30 @@ namespace WhiteRoom
             this.pnlPage.Size = new System.Drawing.Size(551, 448);
             this.pnlPage.TabIndex = 1;
             // 
+            // ScrollWin9xProgressBar
+            // 
+            this.ScrollWin9xProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ScrollWin9xProgressBar.BackColor = System.Drawing.Color.Red;
+            this.ScrollWin9xProgressBar.Location = new System.Drawing.Point(-2, 440);
+            this.ScrollWin9xProgressBar.Name = "ScrollWin9xProgressBar";
+            this.ScrollWin9xProgressBar.Size = new System.Drawing.Size(553, 8);
+            this.ScrollWin9xProgressBar.TabIndex = 1;
+            // 
             // txtPage
             // 
             this.txtPage.AcceptsTab = true;
             this.txtPage.AllowDrop = true;
             this.txtPage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPage.ContextMenuStrip = this.contextMenuPage;
-            this.txtPage.Location = new System.Drawing.Point(10, 10);
+            this.txtPage.Location = new System.Drawing.Point(10, 3);
             this.txtPage.Name = "txtPage";
             this.txtPage.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.txtPage.Size = new System.Drawing.Size(541, 438);
+            this.txtPage.Size = new System.Drawing.Size(541, 445);
             this.txtPage.TabIndex = 0;
             this.txtPage.Text = "";
             this.txtPage.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtPage_DragDrop);
+            this.txtPage.VScroll += new System.EventHandler(this.txtPage_PageScrolled);
             this.txtPage.TextChanged += new System.EventHandler(this.txtPage_TextChanged);
             this.txtPage.GotFocus += new System.EventHandler(this.txtPage_GotFocus);
             this.txtPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPage_KeyDown);
@@ -574,7 +588,6 @@ namespace WhiteRoom
             // lblStats
             // 
             this.lblStats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStats.BackColor = System.Drawing.Color.Transparent;
             this.lblStats.Location = new System.Drawing.Point(423, 9);
             this.lblStats.Name = "lblStats";
             this.lblStats.Size = new System.Drawing.Size(128, 13);
@@ -674,12 +687,23 @@ namespace WhiteRoom
             // 
             this.prtDoc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prtDoc_PrintPage);
             // 
+            // scrollpercentLbl
+            // 
+            this.scrollpercentLbl.AutoSize = true;
+            this.scrollpercentLbl.Location = new System.Drawing.Point(382, 9);
+            this.scrollpercentLbl.Name = "scrollpercentLbl";
+            this.scrollpercentLbl.Size = new System.Drawing.Size(35, 13);
+            this.scrollpercentLbl.TabIndex = 4;
+            this.scrollpercentLbl.Text = "label1";
+            this.scrollpercentLbl.Visible = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(576, 471);
+            this.Controls.Add(this.scrollpercentLbl);
             this.Controls.Add(this.lblStats);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.pnlPage);
@@ -773,5 +797,7 @@ namespace WhiteRoom
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripMenuItem toggleFullscreenToolStripMenuItem;
         private System.Windows.Forms.Label lblStats;
+        private System.Windows.Forms.Label scrollpercentLbl;
+        private Win9xProgressBar ScrollWin9xProgressBar;
     }
 }

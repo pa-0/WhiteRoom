@@ -72,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Win9xProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win9xProgressBar.Designer.cs">
+      <DependentUpon>Win9xProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="DarkTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

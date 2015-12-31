@@ -19,6 +19,8 @@ using System.Diagnostics;
 using System.Text;
 using System.Drawing;
 
+using System.Runtime.InteropServices;
+
 namespace WhiteRoom
 {
     public partial class DarkTextBox : System.Windows.Forms.RichTextBox 
@@ -48,6 +50,41 @@ namespace WhiteRoom
             InitializeComponent();
 
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DarkTextBox_KeyDown);
+        }
+
+        public int getScrollYPos()
+        {
+            // http://stackoverflow.com/a/22861913/883015
+            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Eclectic.POINT)));
+            Marshal.StructureToPtr(new Eclectic.POINT(), ptr, false);
+            Eclectic.SendMessage(this.Handle, Eclectic.EM_GETSCROLLPOS, (int)IntPtr.Zero, (int)ptr);
+            var point = (Eclectic.POINT)Marshal.PtrToStructure(ptr, typeof(Eclectic.POINT));
+            Marshal.FreeHGlobal(ptr);
+            return point.Y;
+        }
+
+        public int getScrollYPosMax()
+        {
+            // Estimation method
+            int offset = 74;
+            int TotalLines = this.Lines.Length;
+            int max_b = (this.FontHeight * TotalLines) - this.Size.Height - offset;
+            return (max_b>0) ? max_b : 0;
+        }
+
+        public int getVScrollMax()
+        {
+            // Estimation method 2, More accurate and supports new lines caused by wordwrap
+            // modified from http://stackoverflow.com/a/2986455/883015
+            int offset = 17;
+            if (this.TextLength == 0) return 0;
+            var p1 = this.GetPositionFromCharIndex(0);
+            var p2 = this.GetPositionFromCharIndex(this.TextLength - 1);
+
+            int scrollPos = -p1.Y;
+            int maxPos = p2.Y - p1.Y - this.ClientSize.Height + offset;
+
+            return (maxPos > 0) ? maxPos : 0;
         }
 
         #region "Helper Functions"
