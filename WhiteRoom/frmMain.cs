@@ -342,11 +342,15 @@ namespace WhiteRoom
             protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
             {
                 // Here set e.TextFont, e.TextColor and so on, For example:
-                if (e.Item.Selected && e.Item.OwnerItem != null)
+                if (e.Item.Selected)
                 {
-                    e.TextColor = Properties.Settings.Default.PageColor;
-                    //e.TextFont = new Font(e.Item.Font, FontStyle.Italic | FontStyle.Bold);
-                } else {
+                    if ( (e.Item.OwnerItem != null) || (e.Item.Owner.Name == "contextMenuPage") )
+                    {
+                        e.TextColor = Properties.Settings.Default.PageColor;
+                        //e.TextFont = new Font(e.Item.Font, FontStyle.Italic | FontStyle.Bold);
+                    }
+                }
+                else {
                     e.TextColor = Properties.Settings.Default.ForegroundColor;
                 }
                 base.OnRenderItemText(e);
