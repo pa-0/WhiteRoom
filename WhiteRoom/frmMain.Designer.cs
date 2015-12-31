@@ -623,6 +623,8 @@ namespace WhiteRoom
             this.btnPageDown.Text = "ä";
             this.btnPageDown.UseVisualStyleBackColor = false;
             this.btnPageDown.Click += new System.EventHandler(this.btnPageDown_Click);
+            this.btnPageDown.MouseEnter += new System.EventHandler(this.pnlNavBtns_MouseEnter);
+            this.btnPageDown.MouseLeave += new System.EventHandler(this.pnlNavBtns_MouseLeave);
             // 
             // btnLineDown
             // 
@@ -638,6 +640,8 @@ namespace WhiteRoom
             this.btnLineDown.Text = "Ô";
             this.btnLineDown.UseVisualStyleBackColor = false;
             this.btnLineDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnLineDown_MouseDown);
+            this.btnLineDown.MouseEnter += new System.EventHandler(this.pnlNavBtns_MouseEnter);
+            this.btnLineDown.MouseLeave += new System.EventHandler(this.pnlNavBtns_MouseLeave);
             this.btnLineDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnLineDown_MouseUp);
             // 
             // btnLineUp
@@ -654,6 +658,8 @@ namespace WhiteRoom
             this.btnLineUp.Text = "Ó";
             this.btnLineUp.UseVisualStyleBackColor = false;
             this.btnLineUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnLineUp_MouseDown);
+            this.btnLineUp.MouseEnter += new System.EventHandler(this.pnlNavBtns_MouseEnter);
+            this.btnLineUp.MouseLeave += new System.EventHandler(this.pnlNavBtns_MouseLeave);
             this.btnLineUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnLineUp_MouseUp);
             // 
             // btnPageUp
@@ -670,6 +676,8 @@ namespace WhiteRoom
             this.btnPageUp.Text = "ã";
             this.btnPageUp.UseVisualStyleBackColor = false;
             this.btnPageUp.Click += new System.EventHandler(this.btnPageUp_Click);
+            this.btnPageUp.MouseEnter += new System.EventHandler(this.pnlNavBtns_MouseEnter);
+            this.btnPageUp.MouseLeave += new System.EventHandler(this.pnlNavBtns_MouseLeave);
             // 
             // dlgOpen
             // 

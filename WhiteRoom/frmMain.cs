@@ -42,6 +42,8 @@ namespace WhiteRoom
         public frmMain()
         {
             InitializeComponent();
+            ToolStripManager.Renderer = new CustomMenuRenderer();
+            //mnuMenuStrip.Renderer = new CustomMenuRenderer();
         }
 
         #region "Helper Functions"
@@ -278,7 +280,7 @@ namespace WhiteRoom
 
         #endregion
 
-        #region "Sync Functions"
+        #region "Sync Functions" and "Styling Misc"
 
         public void Sync()
         {
@@ -308,13 +310,14 @@ namespace WhiteRoom
 
             pnlNav.Visible = !(Properties.Settings.Default.HideNavigation);
             pnlNav.BackColor = Properties.Settings.Default.PageColor;
+
             btnPageUp.ForeColor = Properties.Settings.Default.ForegroundColor;
             btnLineUp.ForeColor = Properties.Settings.Default.ForegroundColor;
             btnLineDown.ForeColor = Properties.Settings.Default.ForegroundColor;
             btnPageDown.ForeColor = Properties.Settings.Default.ForegroundColor;
 
-            //mnuMenuStrip.ForeColor = Properties.Settings.Default.ForegroundColor;
-            //mnuMenuStrip.BackColor = Properties.Settings.Default.PageColor;
+            mnuMenuStrip.ForeColor = Properties.Settings.Default.ForegroundColor;
+            mnuMenuStrip.BackColor = Properties.Settings.Default.PageColor;
 
             txtPage.TabsToSpaces = Properties.Settings.Default.TabToSpaces;
             txtPage.AutoIndent = Properties.Settings.Default.AutoIndent;
@@ -329,6 +332,61 @@ namespace WhiteRoom
                 HandleAdditionalScreens((this.WindowState == FormWindowState.Normal) ? 0 : 1);
             }
             SetResizeEvents();
+        }
+
+        private class CustomMenuRenderer : ToolStripProfessionalRenderer
+        {
+            public CustomMenuRenderer() : base(new CustomMenuColors()) { }
+
+            // http://stackoverflow.com/a/32313929/883015
+            protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
+            {
+                // Here set e.TextFont, e.TextColor and so on, For example:
+                if (e.Item.Selected && e.Item.OwnerItem != null)
+                {
+                    e.TextColor = Properties.Settings.Default.PageColor;
+                    //e.TextFont = new Font(e.Item.Font, FontStyle.Italic | FontStyle.Bold);
+                } else {
+                    e.TextColor = Properties.Settings.Default.ForegroundColor;
+                }
+                base.OnRenderItemText(e);
+            }
+            
+            //// https://msdn.microsoft.com/en-us/library/system.windows.forms.toolstripprofessionalrenderer.aspx
+            //protected override void OnRenderItemBackground(ToolStripItemRenderEventArgs e) {
+            //    e.Item.BackColor = Properties.Settings.Default.PageColor;
+            //}
+        }
+
+        private class CustomMenuColors : ProfessionalColorTable
+        {
+            // http://stackoverflow.com/a/9260827/883015
+            Color ForeColor = Properties.Settings.Default.ForegroundColor;
+            Color BackColor = Properties.Settings.Default.PageColor;
+            
+            public override Color MenuItemSelectedGradientBegin { get { return this.BackColor; } }
+            public override Color MenuItemSelectedGradientEnd { get { return this.BackColor; } }
+            public override Color MenuItemPressedGradientBegin { get { return this.BackColor; } }
+            public override Color MenuItemPressedGradientEnd { get { return this.BackColor; } }
+            public override Color ToolStripDropDownBackground { get { return this.BackColor; } }
+
+            public override Color MenuBorder { get { return this.ForeColor; } }
+            public override Color MenuItemSelected { get { return this.ForeColor; } }
+            public override Color MenuItemBorder { get { return this.ForeColor; } }
+            public override Color SeparatorDark { get { return this.ForeColor; } }
+            public override Color SeparatorLight { get { return this.ForeColor; } }
+
+            /* The following seem to have no effect
+            public override Color ToolStripBorder { get { return Color.Orange; } }
+            public override Color ToolStripContentPanelGradientBegin { get { return Color.Orange; } }
+            public override Color ToolStripContentPanelGradientEnd { get { return Color.Orange; } }
+            public override Color MenuStripGradientBegin { get { return Color.Orange; } }
+            public override Color MenuStripGradientEnd { get { return Color.Orange; } }
+            public override Color ToolStripGradientBegin { get { return Color.Orange; } }
+            public override Color ToolStripGradientEnd { get { return Color.Orange; } }
+            public override Color ToolStripPanelGradientBegin { get { return Color.Orange; } }
+            public override Color ToolStripPanelGradientEnd { get { return Color.Orange; } }
+            */
         }
 
         public void SetRescaleOnMouseRelease(bool enableIt)
@@ -1047,6 +1105,19 @@ namespace WhiteRoom
             ScrollAction = (int) Eclectic.ScrollBarActions.SB_PAGEDOWN;
             Eclectic.SendMessage(txtPage.Handle, Eclectic.WM_VSCROLL, (int) Eclectic.ScrollBarActions.SB_PAGEDOWN, 0);
             txtPage.Focus();
+        }
+
+        private void pnlNavBtns_MouseEnter(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.ForeColor = Properties.Settings.Default.PageColor;
+            b.BackColor = Properties.Settings.Default.ForegroundColor;
+        }
+        private void pnlNavBtns_MouseLeave(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.ForeColor = Properties.Settings.Default.ForegroundColor;
+            b.BackColor = Properties.Settings.Default.PageColor;
         }
 
         private void tmrScroll_Tick(object sender, EventArgs e)
