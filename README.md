@@ -8,7 +8,8 @@ Released and kept under the [Open Software License v3.0 ("OSL")](LICENSE.md).
 ### Changes
 - Many optimizations, performance fixes and bug fixes.
 - Import/Export themes
-- Minor GUI fixes
+- Theme the entire application
+- Special "Scroll Progress bar"
 - Updater fixed
 - Toggle full screen from context menu (right-click menu)
 - Full screen toggle now correctly restores original window state.
@@ -17,6 +18,7 @@ Released and kept under the [Open Software License v3.0 ("OSL")](LICENSE.md).
 - Added patterns (by Subtle Patterns)
 - Added option for page top offset
 - Show/Hide page border
+- Minor GUI fixes
 - etc.
   
 ### Credits
