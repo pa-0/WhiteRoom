@@ -5,6 +5,8 @@ Released and kept under the [Open Software License v3.0 ("OSL")](LICENSE.md).
   
 ![Screenshot](WhiteRoom/misc/WriteRoom.gif)
   
+[![Download for Microsoft Windows](WhiteRoom/misc/download_x86.png)](https://github.com/joedf/WhiteRoom/releases/latest)  
+  
 ### Changes
 - Many optimizations, performance fixes and bug fixes.
 - Import/Export themes
