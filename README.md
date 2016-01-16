@@ -23,6 +23,14 @@ Released and kept under the [Open Software License v3.0 ("OSL")](LICENSE.md).
 - Minor GUI fixes
 - etc.
   
+### Themes (Included extras)
+#### MyBeautifulDesk
+![Screenshot](WhiteRoom/misc/screens/mybeautifuldesk.png)
+#### NightSky
+![Screenshot](WhiteRoom/misc/screens/nightsky.png)
+#### DarkRoom (old/original theme)
+![Screenshot](WhiteRoom/misc/screens/darkroom.png)
+  
 ### Credits
 The original content for **DarkRoom**:  
 - About: http://jjafuller.com/dark-room  
