@@ -36,5 +36,5 @@ Additional labels for pre-release and build metadata are available as extensions
 
 Pre-release/stable software version tag format: 0.BUILD[TAG]-PHASE
 */
-[assembly: AssemblyVersion("0.9.3.0")]
-[assembly: AssemblyFileVersion("0.9.3.0")]
+[assembly: AssemblyVersion("0.9.3.1")]
+[assembly: AssemblyFileVersion("0.9.3.1")]

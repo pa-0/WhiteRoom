@@ -589,13 +589,18 @@ namespace WhiteRoom
                 {
                     string AppPatternsDir = Path.GetFullPath(Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName)).ToLower() + "\\patterns";
                     string PseudoPath = themeFile.IniReadValue("Environment", "BackImage").Trim();
+                    string PseudoPathB = PseudoPath;
                     if (PseudoPath.IndexOf("$PATTERNS:") == 0 && PseudoPath.Contains("$PATTERNS:"))
                         PseudoPath = PseudoPath.Replace("$PATTERNS:", AppPatternsDir + "\\");
-                    Appcfg.BackImage = PseudoPath;
                     if (!File.Exists(PseudoPath))
                     {
-                        MessageBox.Show("Error loading the following background image:\n"+PseudoPath, "WhiteRoom - Theme settings", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                        PseudoPathB = PseudoPathB.Replace("$PATTERNS:", Path.GetDirectoryName(fPath) + "\\..\\patterns\\");
+                        if (!File.Exists(PseudoPathB))
+                            MessageBox.Show("Error loading the following background image:\n"+PseudoPathB, "WhiteRoom - Theme settings", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        else
+                            Appcfg.BackImage = PseudoPathB;
+                    } else
+                        Appcfg.BackImage = PseudoPath;
                 }
                 Appcfg.Opacity = int.Parse(themeFile.IniReadValue("Environment", "Opacity"));
 

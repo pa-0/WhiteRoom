@@ -1117,6 +1117,7 @@ namespace WhiteRoom
             b.ForeColor = Properties.Settings.Default.PageColor;
             b.BackColor = Properties.Settings.Default.ForegroundColor;
         }
+
         private void pnlNavBtns_MouseLeave(object sender, EventArgs e)
         {
             Button b = (Button)sender;
