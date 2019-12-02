@@ -560,9 +560,9 @@ namespace WhiteRoom
                 // Import settings from the ini file
                 string iFont = themeFile.IniReadValue("Environment", "Font");
                     string[] sFont = iFont.Split(',');
-                    string fontStmp = (Regex.Match(sFont[1], @"[\d\.]+").Value).Trim().Replace('.',',');
+                    string fontStmp = (Regex.Match(sFont[1], @"[\d\.]+").Value).Trim();
                     float fontSInt = (float)Convert.ToDouble(fontStmp);
-                    string fontSUnit = (Regex.Match(sFont[1],@"[^\d\.]+").Value).Trim().ToUpper();
+                    string fontSUnit = (Regex.Replace(sFont[1], @"[\d\.]+", "")).Trim().ToUpper();
                     GraphicsUnit FontUnit;
                     if (fontSUnit.Contains("PX") || fontSUnit.Contains("PIXEL"))
                         FontUnit = GraphicsUnit.Pixel;
