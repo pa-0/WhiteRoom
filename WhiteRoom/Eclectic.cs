@@ -169,6 +169,8 @@ namespace WhiteRoom
                 }
                 */
 
+                // support HTTPS - https://www.codeproject.com/Questions/583133/Theplusunderlyingplusconnectionpluswasplusclosed-3
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)768 | (SecurityProtocolType)3072;
                 latest = new WebClient().DownloadString(URLString).Trim();
             }
             catch (Exception e)
