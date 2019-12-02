@@ -610,7 +610,7 @@ namespace WhiteRoom
 
                 //Make preferences window aware of the new changes
                     //font
-                    this.txtFont.Text = fntPicker.Font.Name + ", " + Math.Round(fntPicker.Font.SizeInPoints) + "pt";
+                    this.txtFont.Text = Appcfg.Font.Name + ", " + Math.Round(Appcfg.Font.SizeInPoints) + "pt";
                     //pColor
                     this.btnPageColor.BackColor = Appcfg.PageColor;
                     //fColor
