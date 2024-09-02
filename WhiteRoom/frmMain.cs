@@ -498,30 +498,26 @@ namespace WhiteRoom
 
         private void OpenFile(string file)
         {
+            FileName = file;
+            this.Text = Path.GetFileName(FileName) + " - WhiteRoom";
             try
             {
-                if (File.Exists(file))
+                if (txtPage.FormattingEnabled && Path.GetExtension(FileName) == ".rtf")
                 {
-                    FileName = file;
-
-                    if (txtPage.FormattingEnabled && Path.GetExtension(FileName) == ".rtf")
-                    {
-                        txtPage.LoadFile(FileName, RichTextBoxStreamType.RichText);
-                    }
-                    else
-                    {
-                        txtPage.LoadFile(FileName, RichTextBoxStreamType.PlainText);
-                    }
-
-                    this.Text = Path.GetFileName(FileName) + " - WhiteRoom";
-                    Sync();
-                    txtPage.Modified = false;
+                    txtPage.LoadFile(FileName, RichTextBoxStreamType.RichText);
+                }
+                else
+                {
+                    txtPage.LoadFile(FileName, RichTextBoxStreamType.PlainText);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured when opening the file: " + ex.Message,"WriteRoom - Error: Open File", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message);
             }
+
+            Sync();
+            txtPage.Modified = false;
         }
 
         private string RecallCache()
