@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("WhiteRoom")]
 [assembly: AssemblyDescription("WhiteRoom is a full screen, distraction free, writing environment. WhiteRoom is a fork; an updated and maintained version of DarkRoom (or Dark Room W). Unlike standard word processors that focus on features, DarkRoom is just about you and your text. Basically, DarkRoom is a clone of the original WriteRoom that is an OS X exclusive application.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("POA Inc.")]
 [assembly: AssemblyProduct("WhiteRoom")]
-[assembly: AssemblyCopyright("Copyright (C) Joe DF (2015), Jeffrey Fuller (2010)")]
+[assembly: AssemblyCopyright("Copyright (C) Peter Abbasi (2024), Joe DF (2015), Jeffrey Fuller (2010)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
